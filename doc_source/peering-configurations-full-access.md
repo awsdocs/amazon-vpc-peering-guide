@@ -15,7 +15,7 @@ You have a VPC peering connection \(`pcx-11112222`\) between VPC A and VPC B, wh
 
 ![\[Two VPCs peered together\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/two-vpcs-peered-diagram.png)
 
-You may want to use this kind of configuration when you have a two VPCs that require access to each others' resources\. For example, you set up VPC A for your accounting records, and VPC B for your financial records, and now you want each VPC to be able to access each others' resources without restriction\.
+You may want to use this kind of configuration when you have two VPCs that require access to each others' resources\. For example, you set up VPC A for your accounting records, and VPC B for your financial records, and now you want each VPC to be able to access each others' resources without restriction\.
 
 The route tables for each VPC point to the relevant VPC peering connection to access the entire CIDR block of the peer VPC\.
 
