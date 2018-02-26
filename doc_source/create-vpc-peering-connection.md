@@ -4,7 +4,7 @@ To create a VPC peering connection, first create a request to peer with another 
 
 To activate the request, the owner of the accepter VPC must accept the request\. For an inter\-region VPC peering connection, the request must be accepted in the region of the accepter VPC\.
 
-Before you begin, ensure that you are aware of the limitations and rules for a VPC peering connection\.
+Before you begin, ensure that you are aware of the [limitations and rules](vpc-peering-basics.md#vpc-peering-limitations) for a VPC peering connection\.
 
 
 + [Creating a VPC Peering Connection with Another VPC in Your Account](#create-vpc-peering-connection-local)
@@ -88,7 +88,7 @@ If the VPCs have overlapping IPv4 CIDR blocks, or if the account ID and VPC ID a
 
    + **Peering connection name tag**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
 
-   + **VPC \(Requester**: Select the VPC in your account with which to create the VPC peering connection\. 
+   + **VPC \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
 
    + **Account**: Choose **Another account**\.
 
@@ -108,7 +108,7 @@ If the VPCs have overlapping IPv4 CIDR blocks, or if the account ID and VPC ID a
 
    + **Peering connection name tag**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
 
-   + **VPC \(Requester**: Select the VPC in your account with which to create the VPC peering connection\. 
+   + **VPC \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
 
    + **Account**: Choose **Another account**\.
 

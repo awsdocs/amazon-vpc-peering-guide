@@ -22,7 +22,7 @@ A VPC peering connection goes through various stages starting from when the requ
 
 + **Initiating\-request**: A request for a VPC peering connection has been initiated\. At this stage, the peering connection may fail or may go to `pending-acceptance`\.
 
-+ **Failed**: The request for the VPC peering connection has failed\. During this state, it cannot be accepted or rejected\. The failed VPC peering connection remains visible to the requester for 2 hours\.
++ **Failed**: The request for the VPC peering connection has failed\. During this state, it cannot be accepted, rejected, or deleted\. The failed VPC peering connection remains visible to the requester for 2 hours\.
 
 + **Pending\-acceptance**: The VPC peering connection request is awaiting acceptance from the owner of the accepter VPC\. During this state, the owner of the requester VPC can delete the request, and the owner of the accepter VPC can accept or reject the request\. If no action is taken on the request, it expires after 7 days\.
 
@@ -74,6 +74,8 @@ To create a VPC peering connection with another VPC, be aware of the following l
 
 + Any tags that you create for your VPC peering connection are only applied in the account or region in which you create them\.
 
++ If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information see [Enabling DNS Resolution Support for a VPC Peering Connection](modify-peering-connections.md#vpc-peering-dns)\.
+
 An inter\-region VPC peering connection has additional limitations:
 
 + You cannot create a security group rule that references a peer VPC security group\.
@@ -86,4 +88,4 @@ An inter\-region VPC peering connection has additional limitations:
 
 + The Maximum Transmission Unit \(MTU\) across the VPC peering connection is 1500 bytes \(jumbo frames are not supported\)\.
 
-+ You can create an inter\-region VPC peering connection between the following regions only: US East \(N\. Virginia\), US West \(Oregon\), EU \(Ireland\), and US East \(Ohio\)\.
++ Inter\-region VPC peering connections are supported in all public regions except EU \(Frankfurt\), Asia Pacific \(Osaka\-Local\), and Asia Pacific \(Seoul\)\.

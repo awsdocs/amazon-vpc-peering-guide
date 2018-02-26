@@ -34,7 +34,7 @@ Alternatively, you can use the following commands\.
 | Revoke inbound rules |  [revoke\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) \(AWS CLI\) [Revoke\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)  | 
 | Revoke outbound rules |  [revoke\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) \(AWS CLI\) [Revoke\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)  | 
 
-For example, to update your security group `sg-aaaa111` to allow inbound access over HTTP from `sg-bbbb2222` that's in a peer VPC, you can use the following AWS CLI command:
+For example, to update your security group `sg-aaaa1111` to allow inbound access over HTTP from `sg-bbbb2222` that's in a peer VPC, you can use the following AWS CLI command:
 
 ```
 aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp --port 80 --source-group sg-bbbb2222 
@@ -65,7 +65,7 @@ aws ec2 describe-security-group-references --group-id sg-bbbb2222
   "SecurityGroupsReferenceSet": [
     {
       "ReferencingVpcId": "vpc-aaaaaaaa ",
-      "GroupId": "sg-bbbbb22222",
+      "GroupId": "sg-bbbb2222",
       "VpcPeeringConnectionId": "pcx-b04deed9"       
     }   
   ]
