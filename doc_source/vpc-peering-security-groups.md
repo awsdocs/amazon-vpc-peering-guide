@@ -73,7 +73,7 @@ aws ec2 describe-security-group-references --group-id sg-bbbb2222
 ```
 
 **Note**  
-Currently, you cannot identify security group references using the Amazon VPC or Amazon EC2 consoles\.
+You can use the Amazon VPC or Amazon EC2 consoles to identify security group references by attempting to delete a security group. You will be told of the references, and even if deletion is possible the consoles still require further confirmation\.
 
 If the VPC peering connection is deleted, or if the owner of the peer VPC deletes the referenced security group, the security group rule becomes stale\. 
 
