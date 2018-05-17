@@ -10,11 +10,9 @@ EC2\-Classic instances cannot be enabled for IPv6 communication\. You can enable
 To enable your VPC peering connection for communication with linked EC2\-Classic instances, you must modify the requester VPC peering options if you are the requester of the VPC peering connection, and you must modify the accepter VPC peering options if you are the accepter of the VPC peering connection\. You can use the [describe\-vpc\-peering\-connections](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) command to verify which VPC is the accepter and the requester for a VPC peering connection\. 
 
 You can modify the VPC peering connection options as follows:
-
 + **Enable a local linked EC2\-Classic instance to communicate with instances in a peer VPC** 
 
   In this case, you modify the VPC peering connection options to enable outbound communication from the local ClassicLink connection to the peer VPC on the other side of the VPC peering connection\. The owner of the peer VPC modifies the VPC peering connection options to enable outbound communication from their local VPC to the remote ClassicLink connection\. 
-
 + **Enable a local VPC to communicate with a linked EC2\-Classic instance in a peer VPC** 
 
   In this case, you modify the VPC peering connection options to enable outbound communication from your local VPC to the remote ClassicLink connection on the other side of the VPC peering connection\. The owner of the peer VPC with the linked EC2\-Classic instance modifies the VPC peering connection options to enable outbound communication from their local ClassicLink connection to the remote VPC\.
@@ -52,7 +50,7 @@ The route tables for VPC A contain routes for local VPC traffic, and routes to e
 
 The owner of VPC A must modify the VPC peering connection to enable instance A to communicate with VPC B, and update the main route table\. The owner of VPC B must modify the VPC peering connection to enable VPC B to communicate with instance A\.
 
-
+**Topics**
 + [Modifying the VPC Peering Connection for VPC A](#peering-configurations-modify-vpc-a)
 + [Modifying the VPC Peering Connection for VPC B](#peering-configurations-modify-vpc-b)
 + [Viewing VPC Peering Connection Options](#w3ab1c11c11c23c20)

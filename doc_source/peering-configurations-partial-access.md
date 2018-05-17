@@ -2,7 +2,7 @@
 
 This section demonstrates the configurations for VPC peering connections in which you provide access to part of the CIDR block, a specific CIDR block \(if the VPC has multiple CIDR blocks\) or a specific instance within the peer VPC\. In these examples, a central VPC is peered to two or more VPCs that have overlapping CIDR blocks\. For examples of scenarios in which you might need a specific VPC peering connection configuration, see [VPC Peering Scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC Peering Connections](working-with-vpc-peering.md)\. For more information about updating your route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
 
-
+**Topics**
 + [Two VPCs Peered to Two Subnets in One VPC](#one-to-two-vpcs-simple-hub)
 + [Two VPCs Peered to a Specific CIDR Block in One VPC](#w3ab1c11b9b9)
 + [One VPC Peered to Specific Subnets in Two VPCs](#one-to-two-vpcs-specific-subnets)

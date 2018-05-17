@@ -16,9 +16,6 @@ Deleting a VPC in the Amazon VPC console that's part of an active VPC peering co
 1. In the confirmation dialog box, choose **Yes, Delete**\.
 
 **To delete a VPC peering connection using the command line or an API**
-
 + [delete\-vpc\-peering\-connection](http://docs.aws.amazon.com/cli/latest/reference/ec2/delete-vpc-peering-connection.html) \(AWS CLI\)
-
 + [Remove\-EC2VpcPeeringConnection](http://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
-
 + [DeleteVpcPeeringConnection](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpcPeeringConnection.html) \(Amazon EC2 Query API\)

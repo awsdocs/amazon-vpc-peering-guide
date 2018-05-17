@@ -4,7 +4,7 @@ This section describes VPC peering connection configurations that are invalid\.
 
 For more information about VPC peering limitations, see [VPC Peering Limitations](vpc-peering-basics.md#vpc-peering-limitations)\.
 
-
+**Topics**
 + [Overlapping CIDR Blocks](#overlapping-cidr)
 + [Transitive Peering](#transitive-peering)
 + [Edge to Edge Routing Through a Gateway or Private Connection](#edge-to-edge-vgw)
@@ -36,15 +36,10 @@ To route packets directly between VPC B and VPC C, you can create a separate VPC
 ## Edge to Edge Routing Through a Gateway or Private Connection<a name="edge-to-edge-vgw"></a>
 
 If either VPC in a peering relationship has one of the following connections, you cannot extend the peering relationship to that connection:
-
 + A VPN connection or an AWS Direct Connect connection to a corporate network
-
 + An internet connection through an internet gateway
-
 + An internet connection in a private subnet through a NAT device
-
 + A VPC endpoint to an AWS service; for example, an endpoint to Amazon S3\.
-
 + \(IPv6\) A ClassicLink connection\. You can enable IPv4 communication between a linked EC2\-Classic instance and instances in a VPC on the other side of a VPC peering connection\. However, IPv6 is not supported in EC2\-Classic, so you cannot extend this connection for IPv6 communication\.
 
 For example, if VPC A and VPC B are peered, and VPC A has any of these connections, then instances in VPC B cannot use the connection to access resources on the other side of the connection\. Similarly, resources on the other side of a connection cannot use the connection to access VPC B\.

@@ -11,15 +11,9 @@ AWS uses the existing infrastructure of a VPC to create a VPC peering connection
 A VPC peering connection helps you to facilitate the transfer of data\. For example, if you have more than one AWS account, you can peer the VPCs across those accounts to create a file sharing network\. You can also use a VPC peering connection to allow other VPCs to access resources you have in one of your VPCs\. 
 
 For more information, see the following topics:
-
 + [VPC Peering Basics](vpc-peering-basics.md)
-
 + [Working with VPC Peering Connections](working-with-vpc-peering.md)
-
 + [VPC Peering Scenarios](peering-scenarios.md)
-
 + [Configurations with Routes to an Entire CIDR Block](peering-configurations-full-access.md)
-
 + [Configurations with Specific Routes](peering-configurations-partial-access.md)
-
 + [Invalid VPC Peering Connection Configurations](invalid-peering-configurations.md)

@@ -4,7 +4,7 @@ You can update the inbound or outbound rules for your VPC security groups to ref
 
 To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
 
-You cannot reference the security group of a peer VPC that's in a different region\.
+The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You cannot reference the security group of a peer VPC that's in a different region\.
 
 **To update your security group rules**
 
@@ -18,7 +18,7 @@ You cannot reference the security group of a peer VPC that's in a different regi
 
 1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), enter the ID of the security group in the peer VPC\.
 **Note**  
-The peer VPC can be a VPC in your account, or a VPC in another AWS account\. 
+Security groups in a peer VPC are not automatically populated in the list\.
 
 1. Choose **Save**\.
 
@@ -47,11 +47,8 @@ After you've updated the security group rules, use the [describe\-security\-grou
 ## Identifying Your Referenced Security Groups<a name="vpc-peering-referenced-groups"></a>
 
 To determine if your security group is being referenced in the rules of a security group in a peer VPC, use one of the following commands for one or more security groups in your account\.
-
 + [describe\-security\-group\-references](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-references.html) \(AWS CLI\)
-
 + [Get\-EC2SecurityGroupReference](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SecurityGroupReference.html) \(AWS Tools for Windows PowerShell\)
-
 + [DescribeSecurityGroupReferences](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroupReferences.html) \(Amazon EC2 Query API\)
 
 In the following example, the response indicates that security group `sg-bbbb2222` is being referenced by a security group in VPC `vpc-aaaaaaaa`:
@@ -96,11 +93,8 @@ You can view and delete the stale security group rules for a VPC using the Amazo
 1. When you are done, choose **Close**\.
 
 **To describe your stale security group rules using the command line or an API**
-
 + [describe\-stale\-security\-groups](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-stale-security-groups.html) \(AWS CLI\)
-
 + [Get\-EC2StaleSecurityGroup](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2StaleSecurityGroup.html) \(AWS Tools for Windows PowerShell\)
-
 + [DescribeStaleSecurityGroups](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeStaleSecurityGroups.html) \(Amazon EC2 Query API\)
 
 In the following example, VPC A `(vpc-aaaaaaaa`\) and VPC B were peered, and the VPC peering connection was deleted\. Your security group `sg-aaaa1111` in VPC A references `sg-bbbb2222` in VPC B\. When you run the `describe-stale-security-groups` command for your VPC, the response indicates that security group `sg-aaaa1111` has a stale SSH rule that references `sg-bbbb2222`\.

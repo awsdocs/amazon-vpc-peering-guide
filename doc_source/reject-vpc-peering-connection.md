@@ -13,9 +13,6 @@ You can reject any VPC peering connection request that you've received that's in
 1. In the confirmation dialog box, choose **Yes, Reject**\.
 
 **To reject a VPC peering connection using the command line or an API**
-
 + [reject\-vpc\-peering\-connection](http://docs.aws.amazon.com/cli/latest/reference/ec2/reject-vpc-peering-connection.html) \(AWS CLI\)
-
 + [Deny\-EC2VpcPeeringConnection](http://docs.aws.amazon.com/powershell/latest/reference/items/Deny-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
-
 + [RejectVpcPeeringConnection](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVpcPeeringConnection.html) \(Amazon EC2 Query API\)

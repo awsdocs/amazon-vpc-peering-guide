@@ -49,15 +49,9 @@ If both VPCs in the VPC peering connection are in the same region, have IPv6 CID
 For more information, see [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*\.
 
 **To add or replace a route using the command line or an API**
-
 + [create\-route](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-route.html) \(AWS CLI\)
-
 + [New\-EC2Route](http://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Route.html) \(AWS Tools for Windows PowerShell\)
-
 + [CreateRoute](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html) \(Amazon EC2 Query API\)
-
 + [replace\-route](http://docs.aws.amazon.com/cli/latest/reference/ec2/replace-route.html) \(AWS CLI\)
-
 + [Set\-EC2Route](http://docs.aws.amazon.com/powershell/latest/reference/items/Set-EC2Route.html) \(AWS Tools for Windows PowerShell\)
-
 + [ReplaceRoute](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html) \(Amazon EC2 Query API\)
