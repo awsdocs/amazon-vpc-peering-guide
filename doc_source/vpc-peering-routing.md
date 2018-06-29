@@ -1,6 +1,6 @@
 # Updating Your Route Tables for a VPC Peering Connection<a name="vpc-peering-routing"></a>
 
-To send traffic from your instance to an instance in a peer VPC using private IPv4 addresses, you must add a route to the route table that's associated with the subnet in which the instance resides\. The route points to the CIDR block \(or portion of the CIDR block\) of the other VPC in the VPC peering connection\.
+To send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides\. The route points to the CIDR block \(or portion of the CIDR block\) of the peer VPC in the VPC peering connection\.
 
 Similarly, if the VPCs in the VPC peering connection have associated IPv6 CIDR blocks, you can add a route to your route table to enable communication with the peer VPC over IPv6\. 
 
