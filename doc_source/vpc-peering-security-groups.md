@@ -2,11 +2,18 @@
 
 You can update the inbound or outbound rules for your VPC security groups to reference security groups in the peered VPC\. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC\.
 
-To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
+## Notes about referencing Peer VPCs in Security Group Rules
+1. Security groups in a peer VPC are not automatically populated in the list\.
 
-The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You cannot reference the security group of a peer VPC that's in a different region\.
+2. A security group owned by another AWS account must be prefixed with the remote security group's account number when used in the **Source** or **Destination** field, for example, `123456789012/sg-1a2b3c4d`\.
 
-**To update your security group rules**
+3. Since you cannot reference the security group of a peer VPC that's in a different region, use the remote peer's CIDR block instead of the remote peer's security group name\.
+
+4. To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
+
+5. The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You cannot reference the security group of a peer VPC that's in a different region\.  Instead, use the remote peer's CIDR block.
+
+## Update your security group rules via the console
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
@@ -17,14 +24,12 @@ The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You
 1. Choose **Edit**, **Add another rule**\.
 
 1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), enter the ID of the security group in the peer VPC\.
-**Note**  
-Security groups in a peer VPC are not automatically populated in the list\.
 
 1. Choose **Save**\.
 
-A security group that references a security group in another AWS account includes the account number in **Source** or **Destination** field; for example, `123456789012/sg-1a2b3c4d`\.
+## Update your security group rules via aws cli
 
-Alternatively, you can use the following commands\.
+Alternatively, you can use the following cli commands\:
 
 
 | Action | Commands | 
