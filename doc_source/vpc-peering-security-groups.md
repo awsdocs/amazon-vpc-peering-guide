@@ -2,11 +2,12 @@
 
 You can update the inbound or outbound rules for your VPC security groups to reference security groups in the peered VPC\. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC\.
 
-To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
+**Requirements**
++ The peer VPC can be a VPC in your account , or a VPC in another AWS account. To reference a security group owned by another AWS account, include the account number in the **Source** or **Destination** field; for example, `123456789012/sg-1a2b3c4d`\.
++ You cannot reference the security group of a peer VPC that's in a different region. Instead, use the CIDR block of the peer VPC\.
++ To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
 
-The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You cannot reference the security group of a peer VPC that's in a different region\.
-
-**To update your security group rules**
+**To update your security group rules using the console**
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
@@ -18,29 +19,27 @@ The peer VPC can be a VPC in your account, or a VPC in another AWS account\. You
 
 1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), enter the ID of the security group in the peer VPC\.
 **Note**  
-Security groups in a peer VPC are not automatically populated in the list\.
+Security groups in a peer VPC are not automatically in this list\.
 
 1. Choose **Save**\.
 
-A security group that references a security group in another AWS account includes the account number in **Source** or **Destination** field; for example, `123456789012/sg-1a2b3c4d`\.
+**To update inbound rules using the command line**
++ [authorize\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\)
++ [Grant\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
++ [Revoke\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
++ [revoke\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) \(AWS CLI\)
 
-Alternatively, you can use the following commands\.
-
-
-| Action | Commands | 
-| --- | --- | 
-| Authorize inbound rules |  [authorize\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\) [Grant\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)  | 
-| Authorize outbound rules |  [authorize\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-egress.html) \(AWS CLI\) [Grant\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)  | 
-| Revoke inbound rules |  [revoke\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) \(AWS CLI\) [Revoke\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)  | 
-| Revoke outbound rules |  [revoke\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) \(AWS CLI\) [Revoke\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)  | 
+**To update outbound rules using the command line**
++ [authorize\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-egress.html) \(AWS CLI\)
++ [Grant\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
++ [Revoke\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
++ [revoke\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) \(AWS CLI\)
 
 For example, to update your security group `sg-aaaa1111` to allow inbound access over HTTP from `sg-bbbb2222` that's in a peer VPC, you can use the following AWS CLI command:
 
 ```
 aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp --port 80 --source-group sg-bbbb2222 
 ```
-
-The peer VPC can be a VPC in your account, or a VPC in another AWS account\.
 
 After you've updated the security group rules, use the [describe\-security\-groups](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html) command to view the referenced security group in your security group rules\. 
 
@@ -68,9 +67,6 @@ aws ec2 describe-security-group-references --group-id sg-bbbb2222
   ]
 }
 ```
-
-**Note**  
-Currently, you cannot identify security group references using the Amazon VPC or Amazon EC2 consoles\.
 
 If the VPC peering connection is deleted, or if the owner of the peer VPC deletes the referenced security group, the security group rule becomes stale\. 
 
