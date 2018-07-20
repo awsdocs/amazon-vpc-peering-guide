@@ -4,8 +4,8 @@ To send private IPv4 traffic from your instance to an instance in a peer VPC, yo
 
 Similarly, if the VPCs in the VPC peering connection have associated IPv6 CIDR blocks, you can add a route to your route table to enable communication with the peer VPC over IPv6\. 
 
-**Note**  
-If a subnet is not explicitly associated with a route table, it uses the main route table by default\.  
+If a subnet is not explicitly associated with a route table, it uses the main route table by default\.
+
 You have a [limit](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html) on the number of entries you can add per route table\. If the number of VPC peering connections in your VPC exceeds the route table entry limit for a single route table, consider using multiple subnets that are each associated with a custom route table\. 
 
 The owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC\. For more information about supported route table configurations for VPC peering connections, see [VPC Peering Configurations](peering-configurations.md)\.
@@ -21,7 +21,7 @@ If you have a VPC peered with multiple VPCs that have overlapping or matching IP
 
 1. In the navigation pane, choose **Route Tables**\.
 
-1. Select the route table that's associated with the subnet in which your instance resides\. 
+1. Select the route table that's associated with the subnet in which your instance resides\.
 **Note**  
 If you do not have a route table associated with that subnet, select the main route table for the VPC, as the subnet then uses this route table by default\. 
 

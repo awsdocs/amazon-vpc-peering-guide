@@ -1,6 +1,6 @@
 # Configurations with Routes to an Entire CIDR Block<a name="peering-configurations-full-access"></a>
 
-This section demonstrates the configuration for VPC peering connections in which you configure your route tables to access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC Peering Scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC Peering Connections](working-with-vpc-peering.md)\.
+You can configure VPC peering connections so that your route tables have access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC Peering Scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC Peering Connections](working-with-vpc-peering.md)\.
 
 **Topics**
 + [Two VPCs Peered Together](#two-vpcs-full-access)
@@ -11,7 +11,7 @@ This section demonstrates the configuration for VPC peering connections in which
 
 ## Two VPCs Peered Together<a name="two-vpcs-full-access"></a>
 
-You have a VPC peering connection \(`pcx-11112222`\) between VPC A and VPC B, which are in the same AWS account, and do not have overlapping CIDR blocks\. 
+You have a VPC peering connection \(`pcx-11112222`\) between VPC A and VPC B, which are in the same AWS account, and do not have overlapping CIDR blocks\.
 
 ![\[Two VPCs peered together\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/two-vpcs-peered-diagram.png)
 
@@ -59,7 +59,7 @@ You have a central VPC \(VPC A\), and you have a VPC peering connection between 
 You may want to use this 'flying V' configuration when you have resources on a central VPC, such as a repository of services, that other VPCs need to access\. The other VPCs do not need access to each others' resources; they only need access to resources on the central VPC\.
 
 **Note**  
-VPC B and VPC C cannot send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between VPC B and VPC C in order to route traffic directly between them\. For more information, see [Three VPCs Peered Together](#three-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Invalid VPC Peering Connection Configurations](invalid-peering-configurations.md)\.
+VPC B and VPC C cannot send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between VPC B and VPC C in order to route traffic directly between them\. For more information, see [Three VPCs Peered Together](#three-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)\.
 
 The route tables for each VPC point to the relevant VPC peering connection to access the entire CIDR block of the peer VPC\. 
 
@@ -123,7 +123,7 @@ You have a central VPC \(VPC A\) that's peered to the following VPCs:
 VPC A is peered with all other VPCs, but the other VPCs are not peered to each other\. The VPCs are in the same AWS account and do not have overlapping CIDR blocks\. 
 
 **Note**  
-None of the other VPCs can send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between the other VPCs in order to route traffic between them\. For more information, see [Multiple VPCs Peered Together](#many-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Invalid VPC Peering Connection Configurations](invalid-peering-configurations.md)\.
+None of the other VPCs can send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between the other VPCs in order to route traffic between them\. For more information, see [Multiple VPCs Peered Together](#many-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)\.
 
 ![\[One VPC peered to many VPCs\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/one-to-many-vpcs-diagram.png)
 

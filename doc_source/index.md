@@ -28,5 +28,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Configurations with Routes to an Entire CIDR Block](peering-configurations-full-access.md)
    + [Configurations with Specific Routes](peering-configurations-partial-access.md)
    + [Configurations with ClassicLink](peering-configurations-classiclink.md)
-+ [Invalid VPC Peering Connection Configurations](invalid-peering-configurations.md)
++ [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)
 + [Document History](WhatsNew.md)

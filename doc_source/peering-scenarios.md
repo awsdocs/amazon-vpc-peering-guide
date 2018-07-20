@@ -1,6 +1,6 @@
 # VPC Peering Scenarios<a name="peering-scenarios"></a>
 
-There are a number of reasons you may need to set up VPC peering connection between your VPCs, or between a VPC that you own and a VPC in a different AWS account\. The following scenarios can help you determine which configuration is best suited to your networking requirements\.
+There are a number of reasons you might need to set up a VPC peering connection between your VPCs, or between a VPC that you own and a VPC in a different AWS account\. The following scenarios can help you determine which configuration is best suited to your networking requirements\.
 
 **Topics**
 + [Peering Two or More VPCs to Provide Full Access to Resources](#peering-scenarios-full)
@@ -13,7 +13,7 @@ In this scenario, you have two or more VPCs that you want to peer to enable full
 + Your company has a VPC for the finance department, and another VPC for the accounting department\. The finance department requires access to all resources that are in the accounting department, and the accounting department requires access to all resources in the finance department\. 
 + Your company has multiple IT departments, each with their own VPC\. Some VPCs are located within the same AWS account, and others in a different AWS account\. You want to peer together all VPCs to enable the IT departments to have full access to each others' resources\.
 
-For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see the following topics:
+For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see the following documentation:
 + [Two VPCs Peered Together](peering-configurations-full-access.md#two-vpcs-full-access)
 + [Three VPCs Peered Together](peering-configurations-full-access.md#three-vpcs-full-access)
 + [Multiple VPCs Peered Together](peering-configurations-full-access.md#many-vpcs-full-access)

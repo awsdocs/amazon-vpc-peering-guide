@@ -3,9 +3,9 @@
 You can update the inbound or outbound rules for your VPC security groups to reference security groups in the peered VPC\. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC\.
 
 **Requirements**
-+ The peer VPC can be a VPC in your account , or a VPC in another AWS account. To reference a security group owned by another AWS account, include the account number in the **Source** or **Destination** field; for example, `123456789012/sg-1a2b3c4d`\.
-+ You cannot reference the security group of a peer VPC that's in a different region. Instead, use the CIDR block of the peer VPC\.
-+ To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\. 
++ The peer VPC can be a VPC in your account, or a VPC in another AWS account\. To reference a security group in another AWS account, include the account number in **Source** or **Destination** field; for example, `123456789012/sg-1a2b3c4d`\.
++ You cannot reference the security group of a peer VPC that's in a different region\. Instead, use the CIDR block of the peer VPC\.
++ To reference a security group in a peer VPC, the VPC peering connection must be in the `active` state\.
 
 **To update your security group rules using the console**
 
@@ -17,7 +17,7 @@ You can update the inbound or outbound rules for your VPC security groups to ref
 
 1. Choose **Edit**, **Add another rule**\.
 
-1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), enter the ID of the security group in the peer VPC\.
+1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), type the ID of the security group in the peer VPC\.
 **Note**  
 Security groups in a peer VPC are not automatically in this list\.
 
@@ -38,7 +38,7 @@ Security groups in a peer VPC are not automatically in this list\.
 For example, to update your security group `sg-aaaa1111` to allow inbound access over HTTP from `sg-bbbb2222` that's in a peer VPC, you can use the following AWS CLI command:
 
 ```
-aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp --port 80 --source-group sg-bbbb2222 
+aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp --port 80 --source-group sg-bbbb2222
 ```
 
 After you've updated the security group rules, use the [describe\-security\-groups](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html) command to view the referenced security group in your security group rules\. 
@@ -60,7 +60,7 @@ aws ec2 describe-security-group-references --group-id sg-bbbb2222
 {    
   "SecurityGroupsReferenceSet": [
     {
-      "ReferencingVpcId": "vpc-aaaaaaaa ",
+      "ReferencingVpcId": "vpc-aaaaaaaa",
       "GroupId": "sg-bbbb2222",
       "VpcPeeringConnectionId": "pcx-b04deed9"       
     }   
@@ -74,7 +74,7 @@ If the VPC peering connection is deleted, or if the owner of the peer VPC delete
 
 A stale security group rule is a rule that references a security group in a peer VPC where the VPC peering connection has been deleted or the security group in the peer VPC has been deleted\. When a security group rule becomes stale, it's not automatically removed from your security group—you must manually remove it\. If a security group rule was stale because the VPC peering connection was deleted and you then create a new VPC peering connection with the same VPCs, it will no longer be marked as stale\.
 
-You can view and delete the stale security group rules for a VPC using the Amazon VPC console\. 
+You can view and delete the stale security group rules for a VPC using the Amazon VPC console\.
 
 **To view and delete stale security group rules**
 

@@ -2,7 +2,6 @@
 
 Either owner of a VPC in a peering connection can delete the VPC peering connection at any time\. You can also delete a VPC peering connection that you've requested that is still in the `pending-acceptance` state\.
 
-**Note**  
 Deleting a VPC in the Amazon VPC console that's part of an active VPC peering connection also deletes the VPC peering connection\. If you have requested a VPC peering connection with a VPC in another account, and you delete your VPC before the other party has accepted the request, the VPC peering connection is also deleted\. You cannot delete a VPC for which you have a `pending-acceptance` request from a VPC in another account\. You must first reject the VPC peering connection request\.
 
 **To delete a VPC peering connection**

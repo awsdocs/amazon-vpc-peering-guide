@@ -24,16 +24,17 @@ The route for the VPC peering connection must be added to the main route table, 
 
 When you enable a local VPC for communication with a remote ClassicLink connection, a route is automatically added to all the local VPC route tables with a destination of `10.0.0.0/8` and a target of `Local`\. This enables communication with the remote linked EC2\-Classic instance\. If your route table has an existing static route in the `10.0.0.0/8` IP address range \(including VPC peering connection routes\), you cannot enable the local VPC for communication with the remote ClassicLink connection\.
 
-**Note**  
-You can modify the VPC peering connection options in the following regions:  
-US East \(N\. Virginia\)
-US West \(N\. California\)
-US West \(Oregon\)
-EU \(Ireland\)
-Asia Pacific \(Tokyo\)
-Asia Pacific \(Singapore\)
-South America \(São Paulo\)
-Asia Pacific \(Sydney\)
+**Region Support**
+
+You can modify the VPC peering connection options in the following regions:
++ US East \(N\. Virginia\)
++ US West \(N\. California\)
++ US West \(Oregon\)
++ EU \(Ireland\)
++ Asia Pacific \(Tokyo\)
++ Asia Pacific \(Singapore\)
++ South America \(São Paulo\)
++ Asia Pacific \(Sydney\)
 
 ## Enabling Communication Between a ClassicLink Instance and a Peer VPC<a name="peering-configurations-local-classiclink-remote-vpc"></a>
 
@@ -53,7 +54,7 @@ The owner of VPC A must modify the VPC peering connection to enable instance A t
 **Topics**
 + [Modifying the VPC Peering Connection for VPC A](#peering-configurations-modify-vpc-a)
 + [Modifying the VPC Peering Connection for VPC B](#peering-configurations-modify-vpc-b)
-+ [Viewing VPC Peering Connection Options](#w3ab1c11c11c23c20)
++ [Viewing VPC Peering Connection Options](#peering-configurations-view-options)
 
 ### Modifying the VPC Peering Connection for VPC A<a name="peering-configurations-modify-vpc-a"></a>
 
@@ -120,7 +121,7 @@ There are no changes to the route tables for VPC A\. A new route is automaticall
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/peering-configurations-classiclink.html)
 
-### Viewing VPC Peering Connection Options<a name="w3ab1c11c11c23c20"></a>
+### Viewing VPC Peering Connection Options<a name="peering-configurations-view-options"></a>
 
 You can view the VPC peering connection options for the accepter VPC and requester VPC using the Amazon VPC console or the AWS CLI\.
 

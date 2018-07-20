@@ -1,6 +1,6 @@
-# Invalid VPC Peering Connection Configurations<a name="invalid-peering-configurations"></a>
+# Unsupported VPC Peering Configurations<a name="invalid-peering-configurations"></a>
 
-This section describes VPC peering connection configurations that are invalid\.
+The following VPC peering connection configurations are not supported\.
 
 For more information about VPC peering limitations, see [VPC Peering Limitations](vpc-peering-basics.md#vpc-peering-limitations)\.
 
@@ -11,7 +11,7 @@ For more information about VPC peering limitations, see [VPC Peering Limitations
 
 ## Overlapping CIDR Blocks<a name="overlapping-cidr"></a>
 
-You cannot create a VPC peering connection between VPCs with matching or overlapping IPv4 CIDR blocks\. 
+You cannot create a VPC peering connection between VPCs with matching or overlapping IPv4 CIDR blocks\.
 
 ![\[VPCs with matching IPv4 CIDR blocks\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/overlapping-cidrs-diagram.png)
 
@@ -19,7 +19,7 @@ If the VPCs have multiple IPv4 CIDR blocks, you cannot create a VPC peering conn
 
 ![\[VPCs with overlapping IPv4 CIDR blocks\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/overlapping-multiple-cidrs-diagram.png)
 
-This limitation also applies to VPCs that have non\-overlapping IPv6 CIDR blocks\. Even if you intend to use the VPC peering connection for IPv6 communication only, you cannot create a VPC peering connection if the VPCs have matching or overlapping IPv4 CIDR blocks\. 
+This limitation also applies to VPCs that have non\-overlapping IPv6 CIDR blocks\. Even if you intend to use the VPC peering connection for IPv6 communication only, you cannot create a VPC peering connection if the VPCs have matching or overlapping IPv4 CIDR blocks\.
 
 Communication over IPv6 is not supported for an inter\-region VPC peering connection\.
 
@@ -52,7 +52,7 @@ You have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\)\. V
 
 **Example: Edge to Edge Routing Through an Internet Gateway**
 
-You have a VPC peering connection between VPC A and VPC B \(`pcx-abababab`\)\. VPC A has an internet gateway; VPC B does not\. Edge to edge routing is not supported; you cannot use VPC A to extend the peering relationship to exist between VPC B and the internet\. For example, traffic from the internet can’t directly access VPC B by using the internet gateway connection to VPC A\. 
+You have a VPC peering connection between VPC A and VPC B \(`pcx-abababab`\)\. VPC A has an internet gateway; VPC B does not\. Edge to edge routing is not supported; you cannot use VPC A to extend the peering relationship to exist between VPC B and the internet\. For example, traffic from the internet can’t directly access VPC B by using the internet gateway connection to VPC A\.
 
 ![\[Edge to edge routing through an internet gateway\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/edge-to-edge-igw-diagram.png)
 

@@ -16,4 +16,4 @@ For more information, see the following topics:
 + [VPC Peering Scenarios](peering-scenarios.md)
 + [Configurations with Routes to an Entire CIDR Block](peering-configurations-full-access.md)
 + [Configurations with Specific Routes](peering-configurations-partial-access.md)
-+ [Invalid VPC Peering Connection Configurations](invalid-peering-configurations.md)
++ [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)
