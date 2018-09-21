@@ -6,7 +6,7 @@ Similarly, if the VPCs in the VPC peering connection have associated IPv6 CIDR b
 
 If a subnet is not explicitly associated with a route table, it uses the main route table by default\.
 
-You have a [limit](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html) on the number of entries you can add per route table\. If the number of VPC peering connections in your VPC exceeds the route table entry limit for a single route table, consider using multiple subnets that are each associated with a custom route table\. 
+You have a [limit](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Appendix_Limits.html) on the number of entries you can add per route table\. If the number of VPC peering connections in your VPC exceeds the route table entry limit for a single route table, consider using multiple subnets that are each associated with a custom route table\. 
 
 The owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC\. For more information about supported route table configurations for VPC peering connections, see [VPC Peering Configurations](peering-configurations.md)\.
 
@@ -30,7 +30,7 @@ If you do not have a route table associated with that subnet, select the main ro
 1. For **Destination**, enter the IPv4 address range to which the network traffic in the VPC peering connection must be directed\. You can specify the entire IPv4 CIDR block of the peer VPC, a specific range, or an individual IPv4 address, such as the IP address of the instance with which to communicate\. For example, if the CIDR block of the peer VPC is `10.0.0.0/16`, you can specify a portion `10.0.0.0/28`, or a specific IP address `10.0.0.7/32`\.
 
 1. Select the VPC peering connection from **Target**, and then choose **Save**\.  
-![\[Create VPC peering connection dialog\]](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/images/update-route-table-peering.png)
+![\[Create VPC peering connection dialog\]](http://docs.aws.amazon.com/vpc/latest/peering/images/update-route-table-peering.png)
 
 If both VPCs in the VPC peering connection are in the same region, have IPv6 CIDR blocks, and the resources in the VPC are enabled to use IPv6, you can also add a route for IPv6 communication\.
 
@@ -46,12 +46,12 @@ If both VPCs in the VPC peering connection are in the same region, have IPv6 CID
 
 1. Select the VPC peering connection from **Target** and choose **Save**\.
 
-For more information, see [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*\.
+For more information, see [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*\.
 
 **To add or replace a route using the command line or an API**
-+ [create\-route](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-route.html) \(AWS CLI\)
-+ [New\-EC2Route](http://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Route.html) \(AWS Tools for Windows PowerShell\)
-+ [CreateRoute](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html) \(Amazon EC2 Query API\)
-+ [replace\-route](http://docs.aws.amazon.com/cli/latest/reference/ec2/replace-route.html) \(AWS CLI\)
-+ [Set\-EC2Route](http://docs.aws.amazon.com/powershell/latest/reference/items/Set-EC2Route.html) \(AWS Tools for Windows PowerShell\)
-+ [ReplaceRoute](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html) \(Amazon EC2 Query API\)
++ [create\-route](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-route.html) \(AWS CLI\)
++ [New\-EC2Route](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Route.html) \(AWS Tools for Windows PowerShell\)
++ [CreateRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html) \(Amazon EC2 Query API\)
++ [replace\-route](https://docs.aws.amazon.com/cli/latest/reference/ec2/replace-route.html) \(AWS CLI\)
++ [Set\-EC2Route](https://docs.aws.amazon.com/powershell/latest/reference/items/Set-EC2Route.html) \(AWS Tools for Windows PowerShell\)
++ [ReplaceRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html) \(Amazon EC2 Query API\)

@@ -1,4 +1,4 @@
-# Amazon Virtual Private Cloud VPC Peering Guide
+# Amazon Virtual Private Cloud VPC Peering
 
 -----
 *****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
@@ -14,7 +14,7 @@ Amazon's trademarks and trade dress may not be used in
 
 -----
 ## Contents
-+ [What is VPC Peering?](Welcome.md)
++ [What is VPC Peering?](what-is-vpc-peering.md)
    + [VPC Peering Basics](vpc-peering-basics.md)
 + [Working with VPC Peering Connections](working-with-vpc-peering.md)
    + [Creating and Accepting a VPC Peering Connection](create-vpc-peering-connection.md)

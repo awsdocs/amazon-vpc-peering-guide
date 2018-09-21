@@ -104,9 +104,9 @@ If the VPCs have overlapping IPv4 CIDR blocks, or if the account ID and VPC ID a
 The VPC peering connection that you've created is not active\. To activate it, the owner of the accepter VPC must accept the VPC peering connection request\. To enable traffic to be directed to the peer VPC, update your VPC route table\. For more information, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
 
 **To create a VPC peering connection using the command line or an API**
-+ [create\-vpc\-peering\-connection](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-vpc-peering-connection.html) \(AWS CLI\)
-+ [New\-EC2VpcPeeringConnection](http://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
-+ [CreateVpcPeeringConnection](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html) \(Amazon EC2 Query API\)
++ [create\-vpc\-peering\-connection](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-vpc-peering-connection.html) \(AWS CLI\)
++ [New\-EC2VpcPeeringConnection](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
++ [CreateVpcPeeringConnection](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html) \(Amazon EC2 Query API\)
 
 ## Accepting a VPC Peering Connection<a name="accept-vpc-peering-connection"></a>
 
@@ -134,9 +134,9 @@ If you cannot see the pending VPC peering connection, check the region\. An inte
 Now that your VPC peering connection is active, you must add an entry to your VPC route table to enable traffic to be directed to the peer VPC\. For more information, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
 
 **To accept a VPC peering connection using the command line or an API**
-+ [accept\-vpc\-peering\-connection](http://docs.aws.amazon.com/cli/latest/reference/ec2/accept-vpc-peering-connection.html) \(AWS CLI\)
-+ [Approve\-EC2VpcPeeringConnection](http://docs.aws.amazon.com/powershell/latest/reference/items/Approve-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
-+ [AcceptVpcPeeringConnection](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html) \(Amazon EC2 Query API\)
++ [accept\-vpc\-peering\-connection](https://docs.aws.amazon.com/cli/latest/reference/ec2/accept-vpc-peering-connection.html) \(AWS CLI\)
++ [Approve\-EC2VpcPeeringConnection](https://docs.aws.amazon.com/powershell/latest/reference/items/Approve-EC2VpcPeeringConnection.html) \(AWS Tools for Windows PowerShell\)
++ [AcceptVpcPeeringConnection](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html) \(Amazon EC2 Query API\)
 
 ## Viewing Your VPC Peering Connections<a name="describe-vpc-peering-connections"></a>
 
@@ -151,6 +151,6 @@ You can view all of your VPC peering connections in the Amazon VPC console\. By 
 1. All of your VPC peering connections are listed\. Use the filter search bar to narrow your results\.
 
 **To describe a VPC peering connection using the command line or an API**
-+ [describe\-vpc\-peering\-connections](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) \(AWS CLI\)
-+ [Get\-EC2VpcPeeringConnections](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2VpcPeeringConnections.html) \(AWS Tools for Windows PowerShell\)
-+ [DescribeVpcPeeringConnections](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcPeeringConnections.html) \(Amazon EC2 Query API\)
++ [describe\-vpc\-peering\-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) \(AWS CLI\)
++ [Get\-EC2VpcPeeringConnections](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2VpcPeeringConnections.html) \(AWS Tools for Windows PowerShell\)
++ [DescribeVpcPeeringConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcPeeringConnections.html) \(Amazon EC2 Query API\)

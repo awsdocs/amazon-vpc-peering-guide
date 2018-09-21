@@ -13,27 +13,27 @@ You can update the inbound or outbound rules for your VPC security groups to ref
 
 1. In the navigation pane, choose **Security Groups**\.
 
-1. Select the security group, and choose **Inbound Rules**\. If you're modifying the outbound rules, choose **Outbound Rules**\.
+1. Select the security group, and choose **Inbound Rules** to modify the inbound rules or **Outbound Rules** to modify the outbound rules\.
 
 1. Choose **Edit**, **Add another rule**\.
 
-1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), type the ID of the security group in the peer VPC\.
+1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), type the ID of the security group in the peer VPC if it is in the same region or the CIDR block of the peer VPC if it is in a different region\.
 **Note**  
-Security groups in a peer VPC are not automatically in this list\.
+Security groups in a peer VPC are not automatically displayed\.
 
 1. Choose **Save**\.
 
 **To update inbound rules using the command line**
-+ [authorize\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\)
-+ [Grant\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
-+ [Revoke\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
-+ [revoke\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) \(AWS CLI\)
++ [authorize\-security\-group\-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\)
++ [Grant\-EC2SecurityGroupIngress](https://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
++ [Revoke\-EC2SecurityGroupIngress](https://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
++ [revoke\-security\-group\-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) \(AWS CLI\)
 
 **To update outbound rules using the command line**
-+ [authorize\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-egress.html) \(AWS CLI\)
-+ [Grant\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
-+ [Revoke\-EC2SecurityGroupEgress](http://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
-+ [revoke\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) \(AWS CLI\)
++ [authorize\-security\-group\-egress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-egress.html) \(AWS CLI\)
++ [Grant\-EC2SecurityGroupEgress](https://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
++ [Revoke\-EC2SecurityGroupEgress](https://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) \(AWS Tools for Windows PowerShell\)
++ [revoke\-security\-group\-egress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) \(AWS CLI\)
 
 For example, to update your security group `sg-aaaa1111` to allow inbound access over HTTP from `sg-bbbb2222` that's in a peer VPC, you can use the following AWS CLI command:
 
@@ -41,14 +41,14 @@ For example, to update your security group `sg-aaaa1111` to allow inbound access
 aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp --port 80 --source-group sg-bbbb2222
 ```
 
-After you've updated the security group rules, use the [describe\-security\-groups](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html) command to view the referenced security group in your security group rules\. 
+After you've updated the security group rules, use the [describe\-security\-groups](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html) command to view the referenced security group in your security group rules\. 
 
 ## Identifying Your Referenced Security Groups<a name="vpc-peering-referenced-groups"></a>
 
 To determine if your security group is being referenced in the rules of a security group in a peer VPC, use one of the following commands for one or more security groups in your account\.
-+ [describe\-security\-group\-references](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-references.html) \(AWS CLI\)
-+ [Get\-EC2SecurityGroupReference](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SecurityGroupReference.html) \(AWS Tools for Windows PowerShell\)
-+ [DescribeSecurityGroupReferences](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroupReferences.html) \(Amazon EC2 Query API\)
++ [describe\-security\-group\-references](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-references.html) \(AWS CLI\)
++ [Get\-EC2SecurityGroupReference](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SecurityGroupReference.html) \(AWS Tools for Windows PowerShell\)
++ [DescribeSecurityGroupReferences](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroupReferences.html) \(Amazon EC2 Query API\)
 
 In the following example, the response indicates that security group `sg-bbbb2222` is being referenced by a security group in VPC `vpc-aaaaaaaa`:
 
@@ -89,9 +89,9 @@ You can view and delete the stale security group rules for a VPC using the Amazo
 1. When you are done, choose **Close**\.
 
 **To describe your stale security group rules using the command line or an API**
-+ [describe\-stale\-security\-groups](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-stale-security-groups.html) \(AWS CLI\)
-+ [Get\-EC2StaleSecurityGroup](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2StaleSecurityGroup.html) \(AWS Tools for Windows PowerShell\)
-+ [DescribeStaleSecurityGroups](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeStaleSecurityGroups.html) \(Amazon EC2 Query API\)
++ [describe\-stale\-security\-groups](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-stale-security-groups.html) \(AWS CLI\)
++ [Get\-EC2StaleSecurityGroup](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2StaleSecurityGroup.html) \(AWS Tools for Windows PowerShell\)
++ [DescribeStaleSecurityGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeStaleSecurityGroups.html) \(Amazon EC2 Query API\)
 
 In the following example, VPC A `(vpc-aaaaaaaa`\) and VPC B were peered, and the VPC peering connection was deleted\. Your security group `sg-aaaa1111` in VPC A references `sg-bbbb2222` in VPC B\. When you run the `describe-stale-security-groups` command for your VPC, the response indicates that security group `sg-aaaa1111` has a stale SSH rule that references `sg-bbbb2222`\.
 
@@ -130,4 +130,4 @@ aws ec2 describe-stale-security-groups --vpc-id vpc-aaaaaaaa
 }
 ```
 
-After you've identified the stale security group rules, you can delete them using the [revoke\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) or [revoke\-security\-group\-egress](http://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) commands\.
+After you've identified the stale security group rules, you can delete them using the [revoke\-security\-group\-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) or [revoke\-security\-group\-egress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) commands\.

@@ -29,11 +29,11 @@ You cannot enable DNS resolution support for an inter\-region VPC peering connec
 1. If the peer VPC is in a different AWS account, the owner of the peer VPC must sign into the VPC console, perform steps 2 through 4, and choose **Save**\. 
 
 **To enable DNS resolution using the command line or an API**
-+ [modify\-vpc\-peering\-connection\-options](http://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-peering-connection-options.html) \(AWS CLI\)
-+ [Edit\-EC2VpcPeeringConnectionOption](http://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2VpcPeeringConnectionOption.html) \(AWS Tools for Windows PowerShell\)
-+ [ModifyVpcPeeringConnectionOptions](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcPeeringConnectionOptions.html) \(Amazon EC2 Query API\)
++ [modify\-vpc\-peering\-connection\-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-peering-connection-options.html) \(AWS CLI\)
++ [Edit\-EC2VpcPeeringConnectionOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2VpcPeeringConnectionOption.html) \(AWS Tools for Windows PowerShell\)
++ [ModifyVpcPeeringConnectionOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVpcPeeringConnectionOptions.html) \(Amazon EC2 Query API\)
 
-You must modify the requester VPC peering options if you are the requester of the VPC peering connection, and you must modify the accepter VPC peering options if you are the accepter of the VPC peering connection\. You can use the [describe\-vpc\-peering\-connections](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) or [Get\-EC2VpcPeeringConnections](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2VpcPeeringConnections.html) commands to verify which VPC is the accepter and the requester for a VPC peering connection\.
+You must modify the requester VPC peering options if you are the requester of the VPC peering connection, and you must modify the accepter VPC peering options if you are the accepter of the VPC peering connection\. You can use the [describe\-vpc\-peering\-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-peering-connections.html) or [Get\-EC2VpcPeeringConnections](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2VpcPeeringConnections.html) commands to verify which VPC is the accepter and the requester for a VPC peering connection\.
 
 In this example, you are the requester of the VPC peering connection, therefore modify the peering connection options using the AWS CLI as follows:
 
