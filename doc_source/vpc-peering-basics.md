@@ -10,7 +10,7 @@ To establish a VPC peering connection, you do the following:
 
 1. If required, update the security group rules that are associated with your instance to ensure that traffic to and from the peer VPC is not restricted\. If both VPCs are in the same region, you can reference a security group from the peer VPC as a source or destination for ingress or egress rules in your security group rules\. 
 
-1. If both VPCs are in the same region, you can modify your VPC connection to enable DNS hostname resolution\. By default, if instances on either side of a VPC peering connection address each other using a public DNS hostname, the hostname resolves to the instance's public IP address\. 
+1. By default, if instances on either side of a VPC peering connection address each other using a public DNS hostname, the hostname resolves to the instance's public IP address\. To change this behavior, enable DNS hostname resolution for your VPC connection\. After enabling DNS hostname resolution, if instances on either side of the VPC peering connection address each other using a public DNS hostname, the hostname resolves to the private IP address of the instance\.
 
 For more information, see [Working with VPC Peering Connections](working-with-vpc-peering.md)\.
 
@@ -55,11 +55,11 @@ To create a VPC peering connection with another VPC, be aware of the following l
 + Unicast reverse path forwarding in VPC peering connections is not supported\. For more information, see [Routing for Response Traffic](peering-configurations-partial-access.md#peering-incorrect-response-routing)\.
 + If the VPCs are in the same region, you can enable the resources on either side of a VPC peering connection to communicate with each other over IPv6\. IPv6 communication is not automatic\. You must associate an IPv6 CIDR block with each VPC, enable the instances in the VPCs for IPv6 communication, and add routes to your route tables that route IPv6 traffic intended for the peer VPC to the VPC peering connection\. For more information, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
 + Any tags that you create for your VPC peering connection are only applied in the account or region in which you create them\.
-+ If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information see [Enabling DNS Resolution Support for a VPC Peering Connection](modify-peering-connections.md#vpc-peering-dns)\.
++ If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information, see [Enabling DNS Resolution Support for a VPC Peering Connection](modify-peering-connections.md#vpc-peering-dns)\.
 
 An inter\-region VPC peering connection has additional limitations:
 + You cannot create a security group rule that references a peer VPC security group\.
 + You cannot enable support for an EC2\-Classic instance that's linked to a VPC via ClassicLink to communicate with the peer VPC\.
-+ You cannot enable DNS resolution support \(a VPC cannot resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC\)\.
 + Communication over IPv6 is not supported\.
 + The Maximum Transmission Unit \(MTU\) across the VPC peering connection is 1500 bytes \(jumbo frames are not supported\)\.
++ You must enable DNS resolution support for the VPC peering connection to resolve private DNS hostnames of the peered VPC to private IP addresses, even if the IPv4 CIDR for the VPC falls into the private IPv4 address ranges specified by RFC 1918\.
