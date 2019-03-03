@@ -20,7 +20,7 @@ Both VPCs must be enabled for DNS hostnames and DNS resolution\.
 
 1. To ensure that queries from the peer VPC resolve to private IP addresses in your local VPC, choose the option to enable DNS resolution for queries from the peer VPC\.
 
-1. If the peer VPC is in the same AWS account, you can choose the option to enable DNS resolution for queries from the local VPC\. This ensures that queries from the local VPC resolve to private IP addresses in the peer VPC\. This option is not available if the peer VPC is in a different AWS account or in a different region\.
+1. If the peer VPC is in the same AWS account, you can choose the option to enable DNS resolution for queries from the local VPC\. This ensures that queries from the local VPC resolve to private IP addresses in the peer VPC\. 
 
 1. Choose **Save**\.
 
