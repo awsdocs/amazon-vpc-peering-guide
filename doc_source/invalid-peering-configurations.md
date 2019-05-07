@@ -50,10 +50,16 @@ You have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\)\. V
 
 ![\[Edge to edge routing through a VPN\]](http://docs.aws.amazon.com/vpc/latest/peering/images/edge-to-edge-vpn-diagram.png)
 
-**Example: Edge to Edge Routing Through an Internet Gateway**
+**Example: Edge to Edge Routing Through an InternetGateway**
 
 You have a VPC peering connection between VPC A and VPC B \(`pcx-abababab`\)\. VPC A has an internet gateway; VPC B does not\. Edge to edge routing is not supported; you cannot use VPC A to extend the peering relationship to exist between VPC B and the internet\. For example, traffic from the internet can’t directly access VPC B by using the internet gateway connection to VPC A\.
 
 ![\[Edge to edge routing through an internet gateway\]](http://docs.aws.amazon.com/vpc/latest/peering/images/edge-to-edge-igw-diagram.png)
 
 Similarly, if VPC A has a NAT device that provides internet access to instances in private subnets in VPC A, instances in VPC B cannot use the NAT device to access the internet\.
+
+**Example: Edge to Edge Routing Through a VPC Endpoint**
+
+You have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\)\. VPC A has a VPC endpoint that connects it to Amazon S3\. Edge to edge routing is not supported; you cannot use VPC A to extend the peering relationship to exist between VPC B and Amazon S3\. For example, VPC B can't directly access Amazon S3 using the VPC endpoint connection to VPC A\.
+
+![\[Edge to edge routing through a VPC endpoint\]](http://docs.aws.amazon.com/vpc/latest/peering/images/edge-to-edge-s3-diagram.png)
