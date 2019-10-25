@@ -29,4 +29,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Configurations with Specific Routes](peering-configurations-partial-access.md)
    + [Configurations with ClassicLink](peering-configurations-classiclink.md)
 + [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)
++ [Identity and Access Management for VPC Peering](security-iam.md)
 + [Document History](WhatsNew.md)

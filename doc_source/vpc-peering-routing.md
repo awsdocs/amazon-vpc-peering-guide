@@ -1,14 +1,14 @@
 # Updating Your Route Tables for a VPC Peering Connection<a name="vpc-peering-routing"></a>
 
-To send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides\. The route points to the CIDR block \(or portion of the CIDR block\) of the peer VPC in the VPC peering connection\.
+To send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides\. The route points to the CIDR block \(or portion of the CIDR block\) of the peer VPC in the VPC peering connection, and specifies the VPC peering connection as the target\.
 
 Similarly, if the VPCs in the VPC peering connection have associated IPv6 CIDR blocks, you can add a route to your route table to enable communication with the peer VPC over IPv6\. 
 
-If a subnet is not explicitly associated with a route table, it uses the main route table by default\.
+If a subnet is not explicitly associated with a route table, it uses the main route table by default\. For more information, see [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*\.
 
 You have a [limit](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Appendix_Limits.html) on the number of entries you can add per route table\. If the number of VPC peering connections in your VPC exceeds the route table entry limit for a single route table, consider using multiple subnets that are each associated with a custom route table\. 
 
-The owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC\. For more information about supported route table configurations for VPC peering connections, see [VPC Peering Configurations](peering-configurations.md)\.
+The owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC through the VPC peering connection\. For more information about supported route table configurations for VPC peering connections, see [VPC Peering Configurations](peering-configurations.md)\.
 
 You can add a route for a VPC peering connection that's in the `pending-acceptance` state\. However, the route will have a state of `blackhole` and have no effect until the VPC peering connection is in the `active` state\. 
 

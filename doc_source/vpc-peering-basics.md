@@ -56,6 +56,7 @@ To create a VPC peering connection with another VPC, be aware of the following l
 + If the VPCs are in the same region, you can enable the resources on either side of a VPC peering connection to communicate with each other over IPv6\. IPv6 communication is not automatic\. You must associate an IPv6 CIDR block with each VPC, enable the instances in the VPCs for IPv6 communication, and add routes to your route tables that route IPv6 traffic intended for the peer VPC to the VPC peering connection\. For more information, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
 + Any tags that you create for your VPC peering connection are only applied in the account or region in which you create them\.
 + If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information, see [Enabling DNS Resolution Support for a VPC Peering Connection](modify-peering-connections.md#vpc-peering-dns)\.
++ You cannot connect to or query the Amazon DNS server in a peer VPC\.
 
 An inter\-region VPC peering connection has additional limitations:
 + You cannot create a security group rule that references a peer VPC security group\.
@@ -63,3 +64,4 @@ An inter\-region VPC peering connection has additional limitations:
 + Communication over IPv6 is not supported\.
 + The Maximum Transmission Unit \(MTU\) across the VPC peering connection is 1500 bytes \(jumbo frames are not supported\)\.
 + You must enable DNS resolution support for the VPC peering connection to resolve private DNS hostnames of the peered VPC to private IP addresses, even if the IPv4 CIDR for the VPC falls into the private IPv4 address ranges specified by RFC 1918\.
++ Inter\-region peering in China is only allowed between the China \(Beijing\) Region, operated by SINNET and the China \(Ningxia\) Region, operated by NWCD\.

@@ -32,7 +32,7 @@ For more information, see [Adding IPv4 CIDR Blocks to a VPC](https://docs.aws.am
 
 ### Two VPCs Peered to Two Subnets in One VPC for IPv6<a name="one-to-two-vpcs-simple-hub-ipv6"></a>
 
-You have the same VPC peering configuration as above\. VPC A and VPC B are enabled for IPv6—both VPCs have associated IPv6 CIDR blocks, and subnet X in VPC A has an associated IPv6 CIDR block\.
+You have the same VPC peering configuration as above\. VPC A and VPC B are enabled for IPv6, therefore both VPCs have associated IPv6 CIDR blocks\. Subnet X in VPC A has an associated IPv6 CIDR block\. The VPCs are in the same Region—communication over IPv6 is not supported for inter\-region VPC peering connections\.
 
 ![\[Two VPCs peered to two subnets\]](http://docs.aws.amazon.com/vpc/latest/peering/images/two-vpcs-to-two-subnets-one-vpc-ipv6-diagram.png)
 
