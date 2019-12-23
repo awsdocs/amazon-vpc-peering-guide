@@ -120,7 +120,7 @@ Next, the AWS account owner of VPC B must modify the VPC peering connection opti
 aws ec2 modify-vpc-peering-connection-options --vpc-peering-connection-id pcx-aaaabbbb --accepter-peering-connection-options AllowEgressFromLocalVpcToRemoteClassicLink=true
 ```
 
-There are no changes to the route tables for VPC A\. A new route is automatically added to the route table for VPC B that allows instances in VPC B to communicate with the linked EC2\-Classic instance in VPC A\.
+There are no changes to the route tables for VPC B\. A new route is automatically added to the route table for VPC B that allows instances in VPC B to communicate with the linked EC2\-Classic instance in VPC A\.
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-classiclink.html)
 
