@@ -1,14 +1,16 @@
-# Modifying VPC Peering Connection Options<a name="modify-peering-connections"></a>
+# Modifying VPC peering connection options<a name="modify-peering-connections"></a>
 
 You can modify a VPC peering connection to do the following:
 + Enable one or more EC2\-Classic instances that are linked to your VPC via ClassicLink to communicate with instances in the peer VPC, or to enable instances in your VPC to communicate with linked EC2\-Classic instances in the peer VPC\. For more information, see [Configurations with ClassicLink](peering-configurations-classiclink.md)\. You cannot enable EC2\-Classic instances to communicate with instances in a peer VPC over IPv6\.
-+ Enable a VPC to resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC\. For more information, see [Enabling DNS Resolution Support for a VPC Peering Connection](#vpc-peering-dns)\.
++ Enable a VPC to resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC\. For more information, see [Enabling DNS resolution support for a VPC peering connection](#vpc-peering-dns)\.
 
-## Enabling DNS Resolution Support for a VPC Peering Connection<a name="vpc-peering-dns"></a>
+## Enabling DNS resolution support for a VPC peering connection<a name="vpc-peering-dns"></a>
 
-To enable a VPC to resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC, you must modify the peering connection\. 
+To enable a VPC to resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC, you must modify your existing peering connection\.
 
 Both VPCs must be enabled for DNS hostnames and DNS resolution\.
+
+You cannot enable DNS resolution support when you create a new peering connection\. You can enable DNS resolution support for an existing peering connection that's in the `active` state\.
 
 **To enable DNS resolution support for the peering connection**
 
@@ -18,9 +20,9 @@ Both VPCs must be enabled for DNS hostnames and DNS resolution\.
 
 1. Select the VPC peering connection, and choose **Actions**, **Edit DNS Settings**\.
 
-1. To ensure that queries from the peer VPC resolve to private IP addresses in your local VPC, choose the option to enable DNS resolution for queries from the peer VPC\.
+1. To ensure that queries from the peer VPC resolve to private IP addresses in your local VPC, choose the option to enable DNS resolution for queries from the peer VPC\. This option is **Requester DNS resolution** or **Accepter DNS resolution**, depending on whether the VPC is the requester or accepter VPC\.
 
-1. If the peer VPC is in the same AWS account, you can choose the option to enable DNS resolution for queries from the local VPC\. This ensures that queries from the local VPC resolve to private IP addresses in the peer VPC\. 
+1. If the peer VPC is in the same AWS account, you can enable DNS resolution for both VPCs in the peering connection\. 
 
 1. Choose **Save**\.
 

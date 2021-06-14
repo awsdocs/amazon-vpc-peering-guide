@@ -1,4 +1,4 @@
-# Updating Your Security Groups to Reference Peer VPC Groups<a name="vpc-peering-security-groups"></a>
+# Updating your security groups to reference peer VPC groups<a name="vpc-peering-security-groups"></a>
 
 You can update the inbound or outbound rules for your VPC security groups to reference security groups in the peered VPC\. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC\.
 
@@ -43,7 +43,7 @@ aws ec2 authorize-security-group-ingress --group-id sg-aaaa1111 --protocol tcp -
 
 After you've updated the security group rules, use the [describe\-security\-groups](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html) command to view the referenced security group in your security group rules\. 
 
-## Identifying Your Referenced Security Groups<a name="vpc-peering-referenced-groups"></a>
+## Identifying your referenced security groups<a name="vpc-peering-referenced-groups"></a>
 
 To determine if your security group is being referenced in the rules of a security group in a peer VPC, use one of the following commands for one or more security groups in your account\.
 + [describe\-security\-group\-references](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-references.html) \(AWS CLI\)
@@ -70,9 +70,9 @@ aws ec2 describe-security-group-references --group-id sg-bbbb2222
 
 If the VPC peering connection is deleted, or if the owner of the peer VPC deletes the referenced security group, the security group rule becomes stale\. 
 
-## Working with Stale Security Group Rules<a name="vpc-peering-stale-groups"></a>
+## Working with stale security group rules<a name="vpc-peering-stale-groups"></a>
 
-A stale security group rule is a rule that references a security group in a peer VPC where the VPC peering connection has been deleted or the security group in the peer VPC has been deleted\. When a security group rule becomes stale, it's not automatically removed from your security group—you must manually remove it\. If a security group rule is stale because the VPC peering connection was deleted, the rule will no longer be marked as stale if you create a new VPC peering connection with the same VPCs. 
+A stale security group rule is a rule that references a security group in a peer VPC where the VPC peering connection has been deleted or the security group in the peer VPC has been deleted\. When a security group rule becomes stale, it's not automatically removed from your security group—you must manually remove it\. If a security group rule is stale because the VPC peering connection was deleted, the rule will no longer be marked as stale if you create a new VPC peering connection with the same VPCs\.
 
 You can view and delete the stale security group rules for a VPC using the Amazon VPC console\.
 

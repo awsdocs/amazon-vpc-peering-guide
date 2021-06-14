@@ -1,4 +1,4 @@
-# What is VPC Peering?<a name="what-is-vpc-peering"></a>
+# What is VPC peering?<a name="what-is-vpc-peering"></a>
 
 [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) \(Amazon VPC\) enables you to launch AWS resources into a virtual network that you've defined\.
 
@@ -13,9 +13,9 @@ A VPC peering connection helps you to facilitate the transfer of data\. For exam
 You can establish peering relationships between VPCs across different AWS Regions \(also called Inter\-Region VPC Peering\)\. This allows VPC resources including EC2 instances, Amazon RDS databases and Lambda functions that run in different AWS Regions to communicate with each other using private IP addresses, without requiring gateways, VPN connections, or separate network appliances\. The traffic remains in the private IP space\. All inter\-region traffic is encrypted with no single point of failure, or bandwidth bottleneck\. Traffic always stays on the global AWS backbone, and never traverses the public internet, which reduces threats, such as common exploits, and DDoS attacks\. Inter\-Region VPC Peering provides a simple and cost\-effective way to share resources between regions or replicate data for geographic redundancy\. 
 
 For more information, see the following:
-+ [VPC Peering Basics](vpc-peering-basics.md)
-+ [Working with VPC Peering Connections](working-with-vpc-peering.md)
-+ [VPC Peering Scenarios](peering-scenarios.md)
-+ [Configurations with Routes to an Entire CIDR Block](peering-configurations-full-access.md)
-+ [Configurations with Specific Routes](peering-configurations-partial-access.md)
-+ [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)
++ [VPC peering basics](vpc-peering-basics.md)
++ [Working with VPC peering connections](working-with-vpc-peering.md)
++ [VPC peering scenarios](peering-scenarios.md)
++ [Configurations with routes to an entire CIDR block](peering-configurations-full-access.md)
++ [Configurations with specific routes](peering-configurations-partial-access.md)
++ [Unsupported VPC peering configurations](invalid-peering-configurations.md)

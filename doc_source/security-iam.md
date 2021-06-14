@@ -1,4 +1,4 @@
-# Identity and Access Management for VPC Peering<a name="security-iam"></a>
+# Identity and access management for VPC peering<a name="security-iam"></a>
 
 By default, IAM users cannot create or modify VPC peering connections\. To allow access to VPC peering resources, you create and attach an IAM policy either to:
 +  The IAM user or 
@@ -9,13 +9,13 @@ The following are example IAM policies for working with VPC peering connections\
 For a list of Amazon VPC actions and supported resources and conditions keys for each action, see [Actions, Resources, and Condition Keys for Amazon EC2](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Creating a VPC Peering Connection](#vpc-peering-iam-create)
-+ [Accepting a VPC Peering Connection](#vpc-peering-iam-accept)
-+ [Deleting a VPC Peering Connection](#vpc-peering-iam-delete)
-+ [Working Within a Specific Account](#vpc-peering-iam-account)
-+ [Managing VPC Peering Connections in the Console](#peering-connection-console-iam)
++ [Creating a VPC peering connection](#vpc-peering-iam-create)
++ [Accepting a VPC peering connection](#vpc-peering-iam-accept)
++ [Deleting a VPC peering connection](#vpc-peering-iam-delete)
++ [Working within a specific account](#vpc-peering-iam-account)
++ [Managing VPC peering connections in the console](#peering-connection-console-iam)
 
-## Creating a VPC Peering Connection<a name="vpc-peering-iam-create"></a>
+## Creating a VPC peering connection<a name="vpc-peering-iam-create"></a>
 
 The following policy allows users to create VPC peering connection requests using only VPCs that are tagged with `Purpose=Peering`\. The first statement applies a condition key \(`ec2:ResourceTag`\) to the VPC resource\. Note that the VPC resource for the `CreateVpcPeeringConnection` action is always the requester VPC\. 
 
@@ -67,7 +67,7 @@ The following policy allows users in AWS account 333333333333 to create VPC peer
 }
 ```
 
-## Accepting a VPC Peering Connection<a name="vpc-peering-iam-accept"></a>
+## Accepting a VPC peering connection<a name="vpc-peering-iam-accept"></a>
 
 The following policy allows users to accept VPC peering connection requests from AWS account 444455556666 only\. This helps to prevent users from accepting VPC peering connection requests from unknown accounts\. The first statement uses the `ec2:RequesterVpc` condition key to enforce this\. 
 
@@ -100,7 +100,7 @@ The policy also grants users permissions to accept VPC peering requests only whe
 }
 ```
 
-## Deleting a VPC Peering Connection<a name="vpc-peering-iam-delete"></a>
+## Deleting a VPC peering connection<a name="vpc-peering-iam-delete"></a>
 
 The following policy allows users in account 444455556666 to delete any VPC peering connection, except those that use the specified VPC `vpc-11223344556677889`, which is in the same account\. The policy specifies both the `ec2:AccepterVpc` and `ec2:RequesterVpc` condition keys, as the VPC may have been the requester VPC or the peer VPC in the original VPC peering connection request\. 
 
@@ -122,7 +122,7 @@ The following policy allows users in account 444455556666 to delete any VPC peer
 }
 ```
 
-## Working Within a Specific Account<a name="vpc-peering-iam-account"></a>
+## Working within a specific account<a name="vpc-peering-iam-account"></a>
 
 The following policy allows users to work with VPC peering connections entirely within a specific account\. Users can view, create, accept, reject, and delete VPC peering connections, provided they are all within AWS account 333333333333\. 
 
@@ -160,7 +160,7 @@ The third statement uses a \* wildcard as part of the `Action` element to allow 
 }
 ```
 
-## Managing VPC Peering Connections in the Console<a name="peering-connection-console-iam"></a>
+## Managing VPC peering connections in the console<a name="peering-connection-console-iam"></a>
 
 To view VPC peering connections in the Amazon VPC console, users must have permission to use the `ec2:DescribeVpcPeeringConnections` action\. To use the **Create Peering Connection** page, users must have permission to use the `ec2:DescribeVpcs` action\. This allows them to view and select a VPC\. You can apply resource\-level permissions to all the `ec2:*PeeringConnection` actions, except `ec2:DescribeVpcPeeringConnections`\. 
 

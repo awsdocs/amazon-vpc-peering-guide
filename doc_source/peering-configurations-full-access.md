@@ -1,15 +1,15 @@
-# Configurations with Routes to an Entire CIDR Block<a name="peering-configurations-full-access"></a>
+# Configurations with routes to an entire CIDR block<a name="peering-configurations-full-access"></a>
 
-You can configure VPC peering connections so that your route tables have access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC Peering Scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC Peering Connections](working-with-vpc-peering.md)\.
+You can configure VPC peering connections so that your route tables have access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC peering scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC peering connections](working-with-vpc-peering.md)\.
 
 **Topics**
-+ [Two VPCs Peered Together](#two-vpcs-full-access)
-+ [One VPC Peered with Two VPCs](#one-to-two-vpcs-full-access)
-+ [Three VPCs Peered Together](#three-vpcs-full-access)
-+ [One VPC Peered with Multiple VPCs](#one-to-many-vpcs-full-access)
-+ [Multiple VPCs Peered Together](#many-vpcs-full-access)
++ [Two VPCs peered together](#two-vpcs-full-access)
++ [One VPC peered with two VPCs](#one-to-two-vpcs-full-access)
++ [Three VPCs peered together](#three-vpcs-full-access)
++ [One VPC peered with multiple VPCs](#one-to-many-vpcs-full-access)
++ [Multiple VPCs peered together](#many-vpcs-full-access)
 
-## Two VPCs Peered Together<a name="two-vpcs-full-access"></a>
+## Two VPCs peered together<a name="two-vpcs-full-access"></a>
 
 You have a VPC peering connection \(`pcx-11112222`\) between VPC A and VPC B, which are in the same AWS account, and do not have overlapping CIDR blocks\.
 
@@ -21,9 +21,9 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
-### Two VPCs Peered Together for IPv6<a name="two-vpcs-full-access-ipv6"></a>
+### Two VPCs peered together for IPv6<a name="two-vpcs-full-access-ipv6"></a>
 
 You have the same two VPCs in the VPC peering configuration as above\. In this example, VPC A and VPC B both have associated IPv6 CIDR blocks\. 
 
@@ -33,12 +33,9 @@ The route tables for each VPC point to the VPC peering connection to access the 
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
-**Important**  
-Communication over IPv6 is not supported for an inter\-region VPC peering connection\.
-
 For more information about IPv6 in your VPC, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
 
-### Two VPCs with Multiple CIDRs Peered Together<a name="two-vpcs-full-access-multiple-cidrs"></a>
+### Two VPCs with multiple CIDRs peered together<a name="two-vpcs-full-access-multiple-cidrs"></a>
 
 You can add IPv4 CIDR blocks to your VPC\. In this example, VPC A and VPC B have multiple IPv4 CIDR blocks\.
 
@@ -50,7 +47,7 @@ The route tables for each VPC point to the VPC peering connection to access all 
 
 For more information, see [Adding IPv4 CIDR Blocks to a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize) in the *Amazon VPC User Guide*\.
 
-## One VPC Peered with Two VPCs<a name="one-to-two-vpcs-full-access"></a>
+## One VPC peered with two VPCs<a name="one-to-two-vpcs-full-access"></a>
 
 You have a central VPC \(VPC A\), and you have a VPC peering connection between VPC A and VPC B \(`pcx-12121212`\), and between VPC A and VPC C \(`pcx-23232323`\)\. The VPCs are in the same AWS account, and do not have overlapping CIDR blocks\. 
 
@@ -59,15 +56,15 @@ You have a central VPC \(VPC A\), and you have a VPC peering connection between 
 You may want to use this 'flying V' configuration when you have resources on a central VPC, such as a repository of services, that other VPCs need to access\. The other VPCs do not need access to each others' resources; they only need access to resources on the central VPC\.
 
 **Note**  
-VPC B and VPC C cannot send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between VPC B and VPC C in order to route traffic directly between them\. For more information, see [Three VPCs Peered Together](#three-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)\.
+VPC B and VPC C cannot send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between VPC B and VPC C in order to route traffic directly between them\. For more information, see [Three VPCs peered together](#three-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC peering configurations](invalid-peering-configurations.md)\.
 
 The route tables for each VPC point to the relevant VPC peering connection to access the entire CIDR block of the peer VPC\. 
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
-### One VPC Peered with Two VPCs for IPv6<a name="one-to-two-vpcs-full-access-ipv6"></a>
+### One VPC peered with two VPCs for IPv6<a name="one-to-two-vpcs-full-access-ipv6"></a>
 
 You have the same three VPCs in the VPC peering configuration as above\. In this example, all three VPCs have associated IPv6 CIDR blocks\.
 
@@ -77,7 +74,7 @@ The route tables for each VPC point to the VPC peering connection to access the 
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
-## Three VPCs Peered Together<a name="three-vpcs-full-access"></a>
+## Three VPCs peered together<a name="three-vpcs-full-access"></a>
 
 You have peered three VPCs together in a full mesh configuration\. The VPCs are in the same AWS account and do not have overlapping CIDR blocks:
 + VPC A is peered to VPC B through VPC peering connection `pcx-aaaabbbb`
@@ -92,9 +89,9 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
-### Three VPCs Peered for IPv6<a name="three-vpcs-full-access-ipv6"></a>
+### Three VPCs peered for IPv6<a name="three-vpcs-full-access-ipv6"></a>
 
 You have the same three VPCs in the VPC peering configuration as above\. In this example, VPC A and VPC B both have associated IPv6 CIDR blocks\. VPC C does not have an associated IPv6 CIDR block\. 
 
@@ -110,7 +107,7 @@ The owner of VPC C associates an IPv6 CIDR block with the VPC \(`2001:db8:1234:c
 
 For more information about IPv6 in your VPC, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
 
-## One VPC Peered with Multiple VPCs<a name="one-to-many-vpcs-full-access"></a>
+## One VPC peered with multiple VPCs<a name="one-to-many-vpcs-full-access"></a>
 
 You have a central VPC \(VPC A\) that's peered to the following VPCs:
 + VPC B through `pcx-aaaabbbb`
@@ -123,7 +120,7 @@ You have a central VPC \(VPC A\) that's peered to the following VPCs:
 VPC A is peered with all other VPCs, but the other VPCs are not peered to each other\. The VPCs are in the same AWS account and do not have overlapping CIDR blocks\. 
 
 **Note**  
-None of the other VPCs can send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between the other VPCs in order to route traffic between them\. For more information, see [Multiple VPCs Peered Together](#many-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)\.
+None of the other VPCs can send traffic directly to each other through VPC A\. VPC peering does not support transitive peering relationships, nor edge to edge routing\. You must create a VPC peering connection between the other VPCs in order to route traffic between them\. For more information, see [Multiple VPCs peered together](#many-vpcs-full-access)\. For more information about unsupported peering scenarios, see [Unsupported VPC peering configurations](invalid-peering-configurations.md)\.
 
 ![\[One VPC peered to many VPCs\]](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-many-vpcs-diagram.png)
 
@@ -133,9 +130,9 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
-### One VPC Peered with Multiple VPCs for IPv6<a name="one-to-many-vpcs-full-access-ipv6"></a>
+### One VPC peered with multiple VPCs for IPv6<a name="one-to-many-vpcs-full-access-ipv6"></a>
 
 You have the same VPCs in the VPC peering configuration as above\. All VPCs have associated IPv6 CIDR blocks\.
 
@@ -145,12 +142,12 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
-## Multiple VPCs Peered Together<a name="many-vpcs-full-access"></a>
+## Multiple VPCs peered together<a name="many-vpcs-full-access"></a>
 
 You have peered seven VPCs together in a full mesh configuration:
 
 
-| VPCs | VPC Peering Connection | 
+| VPCs | VPC peering connection | 
 | --- | --- | 
 | A and B | pcx\-aaaabbbb | 
 | A and C | pcx\-aaaacccc | 
@@ -184,9 +181,9 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating route tables, see [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)\.
+ For more information about updating route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
-### Multiple VPCs Peered Together for IPv6<a name="many-vpcs-full-access-ipv6"></a>
+### Multiple VPCs peered together for IPv6<a name="many-vpcs-full-access-ipv6"></a>
 
 You have the same VPCs in the VPC peering configuration as above\. All VPCs have associated IPv6 CIDR blocks\.
 

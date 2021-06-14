@@ -1,7 +1,7 @@
 # Amazon Virtual Private Cloud VPC Peering
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -14,20 +14,20 @@ Amazon's trademarks and trade dress may not be used in
 
 -----
 ## Contents
-+ [What is VPC Peering?](what-is-vpc-peering.md)
-   + [VPC Peering Basics](vpc-peering-basics.md)
-+ [Working with VPC Peering Connections](working-with-vpc-peering.md)
-   + [Creating and Accepting a VPC Peering Connection](create-vpc-peering-connection.md)
-   + [Rejecting a VPC Peering Connection](reject-vpc-peering-connection.md)
-   + [Updating Your Route Tables for a VPC Peering Connection](vpc-peering-routing.md)
-   + [Updating Your Security Groups to Reference Peer VPC Groups](vpc-peering-security-groups.md)
-   + [Modifying VPC Peering Connection Options](modify-peering-connections.md)
-   + [Deleting a VPC Peering Connection](delete-vpc-peering-connection.md)
-+ [VPC Peering Scenarios](peering-scenarios.md)
-+ [VPC Peering Configurations](peering-configurations.md)
-   + [Configurations with Routes to an Entire CIDR Block](peering-configurations-full-access.md)
-   + [Configurations with Specific Routes](peering-configurations-partial-access.md)
++ [What is VPC peering?](what-is-vpc-peering.md)
+   + [VPC peering basics](vpc-peering-basics.md)
++ [Working with VPC peering connections](working-with-vpc-peering.md)
+   + [Creating and accepting a VPC peering connection](create-vpc-peering-connection.md)
+   + [Rejecting a VPC peering connection](reject-vpc-peering-connection.md)
+   + [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)
+   + [Updating your security groups to reference peer VPC groups](vpc-peering-security-groups.md)
+   + [Modifying VPC peering connection options](modify-peering-connections.md)
+   + [Deleting a VPC peering connection](delete-vpc-peering-connection.md)
++ [VPC peering scenarios](peering-scenarios.md)
++ [VPC peering configurations](peering-configurations.md)
+   + [Configurations with routes to an entire CIDR block](peering-configurations-full-access.md)
+   + [Configurations with specific routes](peering-configurations-partial-access.md)
    + [Configurations with ClassicLink](peering-configurations-classiclink.md)
-+ [Unsupported VPC Peering Configurations](invalid-peering-configurations.md)
-+ [Identity and Access Management for VPC Peering](security-iam.md)
-+ [Document History](WhatsNew.md)
++ [Unsupported VPC peering configurations](invalid-peering-configurations.md)
++ [Identity and access management for VPC peering](security-iam.md)
++ [Document history](WhatsNew.md)
