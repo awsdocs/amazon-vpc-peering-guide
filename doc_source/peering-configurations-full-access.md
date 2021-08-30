@@ -1,6 +1,6 @@
 # Configurations with routes to an entire CIDR block<a name="peering-configurations-full-access"></a>
 
-You can configure VPC peering connections so that your route tables have access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC peering scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC peering connections](working-with-vpc-peering.md)\.
+You can configure VPC peering connections so that your route tables have access to the entire CIDR block of the peer VPC\. For more information about scenarios in which you might need a specific VPC peering connection configuration, see [VPC peering scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
 **Topics**
 + [Two VPCs peered together](#two-vpcs-full-access)
@@ -21,7 +21,7 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ### Two VPCs peered together for IPv6<a name="two-vpcs-full-access-ipv6"></a>
 
@@ -62,7 +62,7 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ### One VPC peered with two VPCs for IPv6<a name="one-to-two-vpcs-full-access-ipv6"></a>
 
@@ -89,7 +89,7 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ### Three VPCs peered for IPv6<a name="three-vpcs-full-access-ipv6"></a>
 
@@ -130,7 +130,7 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating your route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
+ For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ### One VPC peered with multiple VPCs for IPv6<a name="one-to-many-vpcs-full-access-ipv6"></a>
 
@@ -181,7 +181,7 @@ The route tables for each VPC point to the relevant VPC peering connection to ac
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
- For more information about updating route tables, see [Updating your Route tables for a VPC peering connection](vpc-peering-routing.md)\.
+ For more information about updating route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ### Multiple VPCs peered together for IPv6<a name="many-vpcs-full-access-ipv6"></a>
 

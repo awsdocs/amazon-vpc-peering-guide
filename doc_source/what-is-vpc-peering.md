@@ -14,7 +14,7 @@ You can establish peering relationships between VPCs across different AWS Region
 
 For more information, see the following:
 + [VPC peering basics](vpc-peering-basics.md)
-+ [Working with VPC peering connections](working-with-vpc-peering.md)
++ [Work with VPC peering connections](working-with-vpc-peering.md)
 + [VPC peering scenarios](peering-scenarios.md)
 + [Configurations with routes to an entire CIDR block](peering-configurations-full-access.md)
 + [Configurations with specific routes](peering-configurations-partial-access.md)

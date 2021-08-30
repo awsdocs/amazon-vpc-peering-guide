@@ -18,7 +18,7 @@ For more information about how to set up the VPC peering connection configuratio
 + [Three VPCs peered together](peering-configurations-full-access.md#three-vpcs-full-access)
 + [Multiple VPCs peered together](peering-configurations-full-access.md#many-vpcs-full-access)
 
-For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC peering connections](working-with-vpc-peering.md)\.
+For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
 ## Peering to one VPC to access centralized resources<a name="peering-scenarios-partial"></a>
 
@@ -35,7 +35,7 @@ For more information about how to set up the VPC peering connection configuratio
 + [Instances in one VPC peered to instances in two VPCs](peering-configurations-partial-access.md#one-to-two-vpcs-instances)
 + [One VPC peered with two VPCs using longest prefix match](peering-configurations-partial-access.md#one-to-two-vpcs-lpm)
 
-For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Working with VPC peering connections](working-with-vpc-peering.md)\.
+For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
 ## Peering with ClassicLink<a name="peering-scenarios-classiclink"></a>
 

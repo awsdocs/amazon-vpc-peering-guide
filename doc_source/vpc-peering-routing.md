@@ -1,4 +1,4 @@
-# Updating your Route tables for a VPC peering connection<a name="vpc-peering-routing"></a>
+# Update your route tables for a VPC peering connection<a name="vpc-peering-routing"></a>
 
 To send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides\. The route points to the CIDR block \(or portion of the CIDR block\) of the peer VPC in the VPC peering connection, and specifies the VPC peering connection as the target\.
 
@@ -21,32 +21,39 @@ If you have a VPC peered with multiple VPCs that have overlapping or matching IP
 
 1. In the navigation pane, choose **Route Tables**\.
 
-1. Select the route table that's associated with the subnet in which your instance resides\.
+1. Select the check box next to the route table that's associated with the subnet in which your instance resides\.
 **Note**  
 If you do not have a route table associated with that subnet, select the main route table for the VPC, as the subnet then uses this route table by default\. 
 
-1. Choose **Routes**, **Edit**, **Add Route**\.
+1. Choose **Actions**, **Edit routes**\.
 
-1. For **Destination**, enter the IPv4 address range to which the network traffic in the VPC peering connection must be directed\. You can specify the entire IPv4 CIDR block of the peer VPC, a specific range, or an individual IPv4 address, such as the IP address of the instance with which to communicate\. For example, if the CIDR block of the peer VPC is `10.0.0.0/16`, you can specify a portion `10.0.0.0/28`, or a specific IP address `10.0.0.7/32`\.
+1. Choose **Add route**\.
 
-1. Select the VPC peering connection from **Target**, and then choose **Save**\.  
-![\[Create VPC peering connection dialog\]](http://docs.aws.amazon.com/vpc/latest/peering/images/update-route-table-peering.png)
+1. For **Destination**, enter the IPv4 address range to which the network traffic in the VPC peering connection must be directed\. You can specify the entire IPv4 CIDR block of the peer VPC, a specific range, or an individual IPv4 address, such as the IP address of the instance with which to communicate\. For example, if the CIDR block of the peer VPC is `10.0.0.0/16`, you can specify a portion `10.0.0.0/24`, or a specific IP address `10.0.0.7/32`\.
+
+1. For **Target**, select the VPC peering connection, and then choose **Save changes**\.
 
 The owner of the peer VPC must also complete these steps to add a route to direct traffic back to your VPC through the VPC peering connection\.
 
-If you have resources in different AWS Regions that use IPv6 addresses , you can create an inter\-region peering connection\. You can then add an IPv6 route for communication between the resources\.
+If you have resources in different AWS Regions that use IPv6 addresses, you can create an inter\-Region peering connection\. You can then add an IPv6 route for communication between the resources\.
 
 **To add an IPv6 route for a VPC peering connection**
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Route Tables** and select the route table that's associated with your subnet\.
+1. In the navigation pane, choose **Route Tables**\.
 
-1. On the **Routes** tab, choose **Edit**, **Add another route**\.
+1. Select the check box next to the route table that's associated with the subnet in which your instance resides\.
+**Note**  
+If you do not have a route table associated with that subnet, select the main route table for the VPC, as the subnet then uses this route table by default\. 
+
+1. Choose **Actions**, **Edit routes**\.
+
+1. Choose **Add route**\.
 
 1. For **Destination**, enter the IPv6 address range for the peer VPC\. You can specify the entire IPv6 CIDR block of the peer VPC, a specific range, or an individual IPv6 address\. For example, if the CIDR block of the peer VPC is `2001:db8:1234:1a00::/56`, you can specify a portion `2001:db8:1234:1a00::/64`, or a specific IP address `2001:db8:1234:1a00::123/128`\.
 
-1. Select the VPC peering connection from **Target** and choose **Save**\.
+1. For **Target**, select the VPC peering connection, and then choose **Save changes**\.
 
 For more information, see [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*\.
 

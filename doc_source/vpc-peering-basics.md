@@ -12,7 +12,7 @@ To establish a VPC peering connection, you do the following:
 
 1. By default, if instances on either side of a VPC peering connection address each other using a public DNS hostname, the hostname resolves to the instance's public IP address\. To change this behavior, enable DNS hostname resolution for your VPC connection\. After enabling DNS hostname resolution, if instances on either side of the VPC peering connection address each other using a public DNS hostname, the hostname resolves to the private IP address of the instance\.
 
-For more information, see [Working with VPC peering connections](working-with-vpc-peering.md)\.
+For more information, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
 ## VPC peering connection lifecycle<a name="vpc-peering-lifecycle"></a>
 
@@ -55,7 +55,7 @@ To create a VPC peering connection with another VPC, be aware of the following l
 + Unicast reverse path forwarding in VPC peering connections is not supported\. For more information, see [Routing for response traffic](peering-configurations-partial-access.md#peering-incorrect-response-routing)\.
 + You can enable resources on either side of a VPC peering connection to communicate with each other over IPv6; however, IPv6 communication is not automatic\. You must associate an IPv6 CIDR block with each VPC, enable the instances in the VPCs for IPv6 communication, and add routes to your route tables that route IPv6 traffic intended for the peer VPC to the VPC peering connection\. For more information, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
 + Any tags that you create for your VPC peering connection are only applied in the account or region in which you create them\.
-+ If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information, see [Enabling DNS resolution support for a VPC peering connection](modify-peering-connections.md#vpc-peering-dns)\.
++ If the IPv4 CIDR block of a VPC in a VPC peering connection falls outside of the private IPv4 address ranges specified by [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html), private DNS hostnames for that VPC cannot be resolved to private IP addresses\. To resolve private DNS hostnames to private IP addresses, you can enable DNS resolution support for the VPC peering connection\. For more information, see [Enable DNS resolution for a VPC peering connection](modify-peering-connections.md#vpc-peering-dns)\.
 + You cannot connect to or query the Amazon DNS server in a peer VPC\.
 
 An inter\-region VPC peering connection has additional limitations:

@@ -1,4 +1,4 @@
-# Rejecting a VPC peering connection<a name="reject-vpc-peering-connection"></a>
+# Reject a VPC peering connection<a name="reject-vpc-peering-connection"></a>
 
 You can reject any VPC peering connection request that you've received that's in the `pending-acceptance` state\. You should only accept VPC peering connections from AWS accounts that you know and trust; you can reject any unwanted requests\. 
 
