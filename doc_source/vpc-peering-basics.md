@@ -10,7 +10,7 @@ To establish a VPC peering connection, you do the following:
 
 1. If required, update the security group rules that are associated with your instance to ensure that traffic to and from the peer VPC is not restricted\. If both VPCs are in the same region, you can reference a security group from the peer VPC as a source or destination for ingress or egress rules in your security group rules\. 
 
-1. By default, if instances on either side of a VPC peering connection address each other using a public DNS hostname, the hostname resolves to the instance's public IP address\. To change this behavior, enable DNS hostname resolution for your VPC connection\. After enabling DNS hostname resolution, if instances on either side of the VPC peering connection address each other using a public DNS hostname, the hostname resolves to the private IP address of the instance\.
+1. With the default VPC peering connection options, if EC2 instances on either side of a VPC peering connection address each other using a public DNS hostname, the hostname resolves to the public IP address of the instance\. To change this behavior, enable DNS hostname resolution for your VPC connection\. After enabling DNS hostname resolution, if instances on either side of the VPC peering connection address each other using a public DNS hostname, the hostname resolves to the private IP address of the instance\.
 
 For more information, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
