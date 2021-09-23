@@ -43,7 +43,7 @@ The following diagram is an example of one VPC peered to two different VPCs\. Th
 
 If the VPCs in the VPC peering connection are within the same region, the charges for transferring data within the VPC peering connection are the same as the charges for transferring data across Availability Zones\. If the VPCs are in different regions, inter\-region data transfer costs apply\.
 
-For more information, see [Amazon EC2 Pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)\.
+For more information, see [Amazon EC2 Pricing](https://docs.aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)\.
 
 ## VPC peering limitations<a name="vpc-peering-limitations"></a>
 
@@ -63,4 +63,3 @@ An inter\-region VPC peering connection has additional limitations:
 + You cannot enable support for an EC2\-Classic instance that's linked to a VPC via ClassicLink to communicate with the peer VPC\.
 + The Maximum Transmission Unit \(MTU\) across the VPC peering connection is 1500 bytes \(jumbo frames are not supported\)\.
 + You must enable DNS resolution support for the VPC peering connection to resolve private DNS hostnames of the peered VPC to private IP addresses, even if the IPv4 CIDR for the VPC falls into the private IPv4 address ranges specified by RFC 1918\.
-+ Inter\-region peering in China is only allowed between the China \(Beijing\) Region, operated by SINNET and the China \(Ningxia\) Region, operated by NWCD\.
