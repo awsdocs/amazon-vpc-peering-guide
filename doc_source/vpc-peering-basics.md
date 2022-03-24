@@ -2,7 +2,7 @@
 
 To establish a VPC peering connection, you do the following:
 
-1. The owner of the *requester VPC* sends a request to the owner of the *accepter VPC* to create the VPC peering connection\. The accepter VPC can be owned by you, or another AWS account, and cannot have a CIDR block that overlaps with the requester VPC's CIDR block\.
+1. The owner of the *requester VPC* sends a request to the owner of the *accepter VPC* to create the VPC peering connection\. The accepter VPC can be owned by you, or another AWS account, and cannot have a CIDR block that overlaps with the CIDR block of the requester VPC\.
 
 1. The owner of the accepter VPC accepts the VPC peering connection request to activate the VPC peering connection\. 
 
@@ -38,12 +38,6 @@ A VPC peering connection is a one to one relationship between two VPCs\. You can
 The following diagram is an example of one VPC peered to two different VPCs\. There are two VPC peering connections: VPC A is peered with both VPC B and VPC C\. VPC B and VPC C are not peered, and you cannot use VPC A as a transit point for peering between VPC B and VPC C\. If you want to enable routing of traffic between VPC B and VPC C, you must create a unique VPC peering connection between them\.
 
 ![\[One VPC peered with two VPCs\]](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-flying-v.png)
-
-## Pricing for a VPC peering connection<a name="vpc-peering-pricing"></a>
-
-If the VPCs in the VPC peering connection are within the same region, the charges for transferring data within the VPC peering connection are the same as the charges for transferring data across Availability Zones\. If the VPCs are in different regions, inter\-region data transfer costs apply\.
-
-For more information, see [Amazon EC2 Pricing](https://docs.aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)\.
 
 ## VPC peering limitations<a name="vpc-peering-limitations"></a>
 

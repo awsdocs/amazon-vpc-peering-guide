@@ -27,7 +27,7 @@ The second statement grants users permissions to create the VPC peering connecti
 "Statement":[{
  "Effect":"Allow",
  "Action": "ec2:CreateVpcPeeringConnection",
- "Resource": "arn:aws:ec2:region:account:vpc/*",
+ "Resource": "arn:aws:ec2:region:account-id:vpc/*",
   "Condition": {
     "StringEquals": {
      "ec2:ResourceTag/Purpose": "Peering"
@@ -37,13 +37,13 @@ The second statement grants users permissions to create the VPC peering connecti
   {
   "Effect": "Allow",
   "Action": "ec2:CreateVpcPeeringConnection",
-  "Resource": "arn:aws:ec2:region:account:vpc-peering-connection/*"
+  "Resource": "arn:aws:ec2:region:account-id:vpc-peering-connection/*"
   }
  ]
 }
 ```
 
-The following policy allows users in AWS account 333333333333 to create VPC peering connections using any VPC in the `us-east-1` region, but only if the VPC that will be accepting the peering connection is a specific VPC \(`vpc-11223344556677889`\) in a specific account \(777788889999\)\. 
+The following policy allows users in the specified AWS account to create VPC peering connections using any VPC in the specified Region, but only if the VPC that will be accepting the peering connection is a specific VPC in another specific account\. 
 
 ```
 {
@@ -51,15 +51,15 @@ The following policy allows users in AWS account 333333333333 to create VPC peer
 "Statement": [{
  "Effect":"Allow",
  "Action": "ec2:CreateVpcPeeringConnection",
- "Resource": "arn:aws:ec2:us-east-1:333333333333:vpc/*"
+ "Resource": "arn:aws:ec2:region:account-id-1:vpc/*"
  },
  {
   "Effect": "Allow",
   "Action": "ec2:CreateVpcPeeringConnection",
-  "Resource": "arn:aws:ec2:region:333333333333:vpc-peering-connection/*",
+  "Resource": "arn:aws:ec2:region:account-id-1:vpc-peering-connection/*",
     "Condition": {
      "ArnEquals": {
-       "ec2:AccepterVpc": "arn:aws:ec2:region:777788889999:vpc/vpc-11223344556677889"
+       "ec2:AccepterVpc": "arn:aws:ec2:region:account-id-2:vpc/vpc-id"
      }
     }
    }
@@ -69,7 +69,7 @@ The following policy allows users in AWS account 333333333333 to create VPC peer
 
 ## Accepting a VPC peering connection<a name="vpc-peering-iam-accept"></a>
 
-The following policy allows users to accept VPC peering connection requests from AWS account 444455556666 only\. This helps to prevent users from accepting VPC peering connection requests from unknown accounts\. The first statement uses the `ec2:RequesterVpc` condition key to enforce this\. 
+The following policy allows users to accept VPC peering connection requests from a specific AWS account only\. This helps to prevent users from accepting VPC peering connection requests from unknown accounts\. The first statement uses the `ec2:RequesterVpc` condition key to enforce this\. 
 
 The policy also grants users permissions to accept VPC peering requests only when your VPC has the tag `Purpose=Peering`\. 
 
@@ -79,17 +79,17 @@ The policy also grants users permissions to accept VPC peering requests only whe
 "Statement":[{
  "Effect":"Allow",
  "Action": "ec2:AcceptVpcPeeringConnection",
- "Resource": "arn:aws:ec2:region:account:vpc-peering-connection/*",
+ "Resource": "arn:aws:ec2:region:account-id-1:vpc-peering-connection/*",
   "Condition": {
    "ArnEquals": {
-    "ec2:RequesterVpc": "arn:aws:ec2:region:444455556666:vpc/*"
+    "ec2:RequesterVpc": "arn:aws:ec2:region:account-id-2:vpc/*"
    }
   }
  },
  {
  "Effect": "Allow",
  "Action": "ec2:AcceptVpcPeeringConnection",
- "Resource": "arn:aws:ec2:region:account:vpc/*",
+ "Resource": "arn:aws:ec2:region:account-id:vpc/*",
   "Condition": {
    "StringEquals": {
     "ec2:ResourceTag/Purpose": "Peering"
@@ -102,7 +102,7 @@ The policy also grants users permissions to accept VPC peering requests only whe
 
 ## Deleting a VPC peering connection<a name="vpc-peering-iam-delete"></a>
 
-The following policy allows users in account 444455556666 to delete any VPC peering connection, except those that use the specified VPC `vpc-11223344556677889`, which is in the same account\. The policy specifies both the `ec2:AccepterVpc` and `ec2:RequesterVpc` condition keys, as the VPC may have been the requester VPC or the peer VPC in the original VPC peering connection request\. 
+The following policy allows users in the specified account to delete any VPC peering connection, except those that use the specified VPC, which is in the same account\. The policy specifies both the `ec2:AccepterVpc` and `ec2:RequesterVpc` condition keys, as the VPC might have been the requester VPC or the peer VPC in the original VPC peering connection request\. 
 
 ```
 {
@@ -110,11 +110,11 @@ The following policy allows users in account 444455556666 to delete any VPC peer
 "Statement": [{
   "Effect":"Allow",
   "Action": "ec2:DeleteVpcPeeringConnection",
-  "Resource": "arn:aws:ec2:region:444455556666:vpc-peering-connection/*",
+  "Resource": "arn:aws:ec2:region:account-id:vpc-peering-connection/*",
    "Condition": {
     "ArnNotEquals": {
-     "ec2:AccepterVpc": "arn:aws:ec2:region:444455556666:vpc/vpc-11223344556677889",
-     "ec2:RequesterVpc": "arn:aws:ec2:region:444455556666:vpc/vpc-11223344556677889"
+     "ec2:AccepterVpc": "arn:aws:ec2:region:account-id:vpc/vpc-id",
+     "ec2:RequesterVpc": "arn:aws:ec2:region:account-id:vpc/vpc-id"
     }
    }
   }
@@ -124,13 +124,13 @@ The following policy allows users in account 444455556666 to delete any VPC peer
 
 ## Working within a specific account<a name="vpc-peering-iam-account"></a>
 
-The following policy allows users to work with VPC peering connections entirely within a specific account\. Users can view, create, accept, reject, and delete VPC peering connections, provided they are all within AWS account 333333333333\. 
+The following policy allows users to work with VPC peering connections entirely within a specific account\. Users can view, create, accept, reject, and delete VPC peering connections, provided they are all within the same AWS account\. 
 
 The first statement allows users to view all VPC peering connections\. The `Resource` element requires a \* wildcard in this case, as this API action \(`DescribeVpcPeeringConnections`\) currently does not support resource\-level permissions\.
 
-The second statement allows users to create VPC peering connections, and allows access to all VPCs in account 333333333333 in order to do so\. 
+The second statement allows users to create VPC peering connections, and allows access to all VPCs in the specified account in order to do so\. 
 
-The third statement uses a \* wildcard as part of the `Action` element to allow all VPC peering connection actions\. The condition keys ensure that the actions can only be performed on VPC peering connections with VPCs that are part of account 333333333333\. For example, a user is not allowed to delete a VPC peering connection if either the accepter or requester VPC is in a different account\. A user cannot create a VPC peering connection with a VPC in a different account\.
+The third statement uses a \* wildcard as part of the `Action` element to allow all VPC peering connection actions\. The condition keys ensure that the actions can only be performed on VPC peering connections with VPCs that are part of the account\. For example, a user is not allowed to delete a VPC peering connection if either the accepter or requester VPC is in a different account\. A user cannot create a VPC peering connection with a VPC in a different account\.
 
 ```
 {
@@ -143,16 +143,16 @@ The third statement uses a \* wildcard as part of the `Action` element to allow 
   {
   "Effect": "Allow",
   "Action": ["ec2:CreateVpcPeeringConnection","ec2:AcceptVpcPeeringConnection"],
-  "Resource": "arn:aws:ec2:*:333333333333:vpc/*"
+  "Resource": "arn:aws:ec2:*:account-id:vpc/*"
   },
   {
   "Effect": "Allow",
   "Action": "ec2:*VpcPeeringConnection",
-  "Resource": "arn:aws:ec2:*:333333333333:vpc-peering-connection/*",
+  "Resource": "arn:aws:ec2:*:account-id:vpc-peering-connection/*",
   "Condition": {
    "ArnEquals": {
-    "ec2:AccepterVpc": "arn:aws:ec2:*:333333333333:vpc/*",
-    "ec2:RequesterVpc": "arn:aws:ec2:*:333333333333:vpc/*"
+    "ec2:AccepterVpc": "arn:aws:ec2:*:account-id:vpc/*",
+    "ec2:RequesterVpc": "arn:aws:ec2:*:account-id:vpc/*"
     }
    }
   }
@@ -164,7 +164,7 @@ The third statement uses a \* wildcard as part of the `Action` element to allow 
 
 To view VPC peering connections in the Amazon VPC console, users must have permission to use the `ec2:DescribeVpcPeeringConnections` action\. To use the **Create Peering Connection** page, users must have permission to use the `ec2:DescribeVpcs` action\. This allows them to view and select a VPC\. You can apply resource\-level permissions to all the `ec2:*PeeringConnection` actions, except `ec2:DescribeVpcPeeringConnections`\. 
 
-The following policy allows users to view VPC peering connections, and to use the **Create VPC Peering Connection** dialog box to create a VPC peering connection using a specific requester VPC \(`vpc-11223344556677889`\) only\. If users try to create a VPC peering connection with a different requester VPC, the request fails\.
+The following policy allows users to view VPC peering connections, and to use the **Create VPC Peering Connection** dialog box to create a VPC peering connection using a specific requester VPC only\. If users try to create a VPC peering connection with a different requester VPC, the request fails\.
 
 ```
 {
@@ -180,7 +180,7 @@ The following policy allows users to view VPC peering connections, and to use th
    "Effect":"Allow",
    "Action": "ec2:CreateVpcPeeringConnection",
    "Resource": [
-    "arn:aws:ec2:*:*:vpc/vpc-11223344556677889",
+    "arn:aws:ec2:*:*:vpc/vpc-id",
     "arn:aws:ec2:*:*:vpc-peering-connection/*"
    ]
   }
