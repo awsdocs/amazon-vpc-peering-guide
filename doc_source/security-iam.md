@@ -69,9 +69,7 @@ The following policy allows users in the specified AWS account to create VPC pee
 
 ## Accepting a VPC peering connection<a name="vpc-peering-iam-accept"></a>
 
-The following policy allows users to accept VPC peering connection requests from a specific AWS account only\. This helps to prevent users from accepting VPC peering connection requests from unknown accounts\. The first statement uses the `ec2:RequesterVpc` condition key to enforce this\. 
-
-The policy also grants users permissions to accept VPC peering requests only when your VPC has the tag `Purpose=Peering`\. 
+The following policy allows users to accept VPC peering connection requests from a specific AWS account only\. This helps to prevent users from accepting VPC peering connection requests from unknown accounts\. The statement uses the `ec2:RequesterVpc` condition key to enforce this\. 
 
 ```
 {
@@ -85,8 +83,16 @@ The policy also grants users permissions to accept VPC peering requests only whe
     "ec2:RequesterVpc": "arn:aws:ec2:region:account-id-2:vpc/*"
    }
   }
- },
- {
+ }]
+}
+```
+
+The following policy grants users permissions to accept VPC peering requests only when the VPC has the tag `Purpose=Peering`\.
+
+```
+{
+"Version": "2012-10-17",
+"Statement":[{
  "Effect": "Allow",
  "Action": "ec2:AcceptVpcPeeringConnection",
  "Resource": "arn:aws:ec2:region:account-id:vpc/*",
@@ -95,8 +101,7 @@ The policy also grants users permissions to accept VPC peering requests only whe
     "ec2:ResourceTag/Purpose": "Peering"
     }
    }
-  }
- ]
+  }]
 }
 ```
 

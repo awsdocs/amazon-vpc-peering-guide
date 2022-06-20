@@ -9,3 +9,4 @@ You can use the Amazon VPC console to create and work with VPC peering connectio
 + [Update your security groups to reference peer VPC groups](vpc-peering-security-groups.md)
 + [Modify VPC peering connection options](modify-peering-connections.md)
 + [Delete a VPC peering connection](delete-vpc-peering-connection.md)
++ [Troubleshoot a VPC peering connection](troubleshoot-vpc-peering-connections.md)

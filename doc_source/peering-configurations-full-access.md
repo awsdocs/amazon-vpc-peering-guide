@@ -33,7 +33,7 @@ The route tables for each VPC point to the VPC peering connection to access the 
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
-For more information about IPv6 in your VPC, see [Your VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*\.
+For more information about IPv6 in your VPC, see [IP addressing](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html#vpc-ip-addressing) in the *Amazon VPC User Guide*\.
 
 ### Two VPCs with multiple CIDRs peered together<a name="two-vpcs-full-access-multiple-cidrs"></a>
 
@@ -45,7 +45,7 @@ The route tables for each VPC point to the VPC peering connection to access all 
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-full-access.html)
 
-For more information, see [Adding IPv4 CIDR Blocks to a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize) in the *Amazon VPC User Guide*\.
+For more information, see [Associate a secondary IPv4 CIDR block with your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#add-ipv4-cidr) in the *Amazon VPC User Guide*\.
 
 ## One VPC peered with two VPCs<a name="one-to-two-vpcs-full-access"></a>
 

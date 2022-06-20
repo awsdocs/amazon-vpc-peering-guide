@@ -23,6 +23,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Update your security groups to reference peer VPC groups](vpc-peering-security-groups.md)
    + [Modify VPC peering connection options](modify-peering-connections.md)
    + [Delete a VPC peering connection](delete-vpc-peering-connection.md)
+   + [Troubleshoot a VPC peering connection](troubleshoot-vpc-peering-connections.md)
 + [VPC peering scenarios](peering-scenarios.md)
 + [VPC peering configurations](peering-configurations.md)
    + [Configurations with routes to an entire CIDR block](peering-configurations-full-access.md)
