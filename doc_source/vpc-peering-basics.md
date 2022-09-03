@@ -55,5 +55,5 @@ To create a VPC peering connection with another VPC, be aware of the following l
 An inter\-region VPC peering connection has additional limitations:
 + You cannot create a security group rule that references a peer VPC security group\.
 + You cannot enable support for an EC2\-Classic instance that's linked to a VPC via ClassicLink to communicate with the peer VPC\.
-+ The Maximum Transmission Unit \(MTU\) across the VPC peering connection is 1500 bytes \(jumbo frames are not supported\)\.
++ The Maximum Transmission Unit \(MTU\) across the VPC peering connection over Regions is 1500 bytes\. Jumbo frames \(MTUs up to 9001 bytes\) are not supported for inter\-Region VPC peering connections\. They are, however, supported for VPC peering connections in the same Region\. For more information about jumbo frames, see [Jumbo frames \(9001 MTU\)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/network_mtu.html#jumbo_frame_instances) in the *Amazon EC2 User Guide for Linux Instances*\.
 + You must enable DNS resolution support for the VPC peering connection to resolve private DNS hostnames of the peered VPC to private IP addresses, even if the IPv4 CIDR for the VPC falls into the private IPv4 address ranges specified by RFC 1918\.
