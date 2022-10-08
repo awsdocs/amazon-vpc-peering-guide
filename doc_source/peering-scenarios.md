@@ -27,18 +27,10 @@ In this scenario, you have a central VPC that contains resources that you want t
 + Your company has a VPC that you want to share with your customers\. Each customer can create a VPC peering connection with your VPC, however, your customers cannot route traffic to other VPCs that are peered to yours, nor are they aware of the other customers' routes\. 
 + You have a central VPC that is used for Active Directory services\. Specific instances in peer VPCs send requests to the Active Directory servers and require full access to the central VPC\. The central VPC does not require full access to the peer VPCs; it only needs to route response traffic to the specific instances\. 
 
-For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see the following topics:
-+ [One VPC peered with two VPCs](peering-configurations-full-access.md#one-to-two-vpcs-full-access)
-+ [One VPC peered with multiple VPCs](peering-configurations-full-access.md#one-to-many-vpcs-full-access)
-+ [Two VPCs peered to two subnets in one VPC](peering-configurations-partial-access.md#one-to-two-vpcs-simple-hub)
-+ [One VPC peered to specific subnets in two VPCs](peering-configurations-partial-access.md#one-to-two-vpcs-specific-subnets)
-+ [Instances in one VPC peered to instances in two VPCs](peering-configurations-partial-access.md#one-to-two-vpcs-instances)
-+ [One VPC peered with two VPCs using longest prefix match](peering-configurations-partial-access.md#one-to-two-vpcs-lpm)
-
 For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
 
 ## Peering with ClassicLink<a name="peering-scenarios-classiclink"></a>
 
 You can modify a VPC peering connection to enable one or more EC2\-Classic instances that are linked to your VPC via ClassicLink to communicate with instances in the peer VPC\. Similarly, you can modify a VPC peering connection to enable instances in your VPC to communicate with linked EC2\-Classic instances in the peer VPC\.
 
-For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see [Configurations with ClassicLink](peering-configurations-classiclink.md)\.
+For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see [VPC peering configurations with ClassicLink](peering-configurations-classiclink.md)\.

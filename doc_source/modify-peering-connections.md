@@ -1,7 +1,7 @@
 # Modify VPC peering connection options<a name="modify-peering-connections"></a>
 
 You can modify a VPC peering connection to do the following:
-+ Enable one or more EC2\-Classic instances that are linked to your VPC via ClassicLink to communicate with instances in the peer VPC, or to enable instances in your VPC to communicate with linked EC2\-Classic instances in the peer VPC\. For more information, see [Configurations with ClassicLink](peering-configurations-classiclink.md)\. You cannot enable EC2\-Classic instances to communicate with instances in a peer VPC over IPv6\.
++ Enable one or more EC2\-Classic instances that are linked to your VPC via ClassicLink to communicate with instances in the peer VPC, or to enable instances in your VPC to communicate with linked EC2\-Classic instances in the peer VPC\. For more information, see [VPC peering configurations with ClassicLink](peering-configurations-classiclink.md)\. You cannot enable EC2\-Classic instances to communicate with instances in a peer VPC over IPv6\.
 + Enable a VPC to resolve public IPv4 DNS hostnames to private IPv4 addresses when queried from instances in the peer VPC\. For more information, see [Enable DNS resolution for a VPC peering connection](#vpc-peering-dns)\.
 
 ## Enable DNS resolution for a VPC peering connection<a name="vpc-peering-dns"></a>
@@ -16,7 +16,7 @@ You cannot enable DNS resolution support when you create a new peering connectio
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Peering Connections**\.
+1. In the navigation pane, choose **Peering connections**\.
 
 1. Select the VPC peering connection, and choose **Actions**, **Edit DNS Settings**\.
 

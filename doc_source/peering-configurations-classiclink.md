@@ -1,8 +1,13 @@
-# Configurations with ClassicLink<a name="peering-configurations-classiclink"></a>
+# VPC peering configurations with ClassicLink<a name="peering-configurations-classiclink"></a>
+
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic\. We recommend that you [migrate from EC2\-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html)\. | 
 
 If you have a VPC peering connection between two VPCs, and there are one or more EC2\-Classic instances that are linked to one or both of the VPCs using ClassicLink, you can extend the VPC peering connection to enable communication between the EC2\-Classic instances and the instances in the VPC on the other side of the VPC peering connection\. This enables the EC2\-Classic instances and the instances in the VPC to communicate using private IP addresses\. To do this, you enable a local VPC to communicate with a linked EC2\-Classic instance in a peer VPC, or you enable a local linked EC2\-Classic instance to communicate with VPC instances in a peer VPC\.
 
-Communication over ClassicLink only works if both VPCs in the VPC peering connection are in the same region\.
+Communication over ClassicLink only works if both VPCs in the VPC peering connection are in the same Region\.
 
 **Important**  
 EC2\-Classic instances cannot be enabled for IPv6 communication\. You can enable VPC instances on either side of a VPC peering connection to communicate with each other over IPv6; however, an EC2\-Classic instance that's ClassicLinked with a VPC can communicate with VPC instances on either side of the VPC peering connection over IPv4 only\.
@@ -26,7 +31,7 @@ When you enable a local VPC for communication with a remote ClassicLink connecti
 
 **Region Support**
 
-You can modify the VPC peering connection options in the following regions:
+You can modify the VPC peering connection options in the following Regions:
 + US East \(N\. Virginia\)
 + US West \(N\. California\)
 + US West \(Oregon\)
@@ -36,30 +41,27 @@ You can modify the VPC peering connection options in the following regions:
 + South America \(São Paulo\)
 + Asia Pacific \(Sydney\)
 
-## Enabling communication between a ClassicLink instance and a peer VPC<a name="peering-configurations-local-classiclink-remote-vpc"></a>
+## Enable communication between an EC2\-Classic instance and a peer VPC<a name="peering-configurations-local-classiclink-remote-vpc"></a>
 
-In the following scenario, VPC A is enabled for ClassicLink, and instance A is linked to VPC A using ClassicLink\. VPC B is in a different AWS account, and is peered to VPC A using VPC peering connection `pcx-aaaabbbb`\. The VPC peering connection was requested by VPC A and accepted by VPC B\. You want instance A to communicate with instances in VPC B over private IP, and you want instances in VPC B to communicate with instance A over private IP\.
+In this scenario, we have the following:
++ VPC A is enabled for ClassicLink, and EC2\-Classic instance A is linked to VPC A using ClassicLink\.
++ VPC B is in a different AWS account, and is peered to VPC A using VPC peering connection `pcx-aaaabbbb`\. The VPC peering connection was requested by VPC A and accepted by VPC B\.
++ VPC B can either be a VPC in an account that supports EC2\-Classic, or an account that supports EC2\-VPC only\.
 
-**Note**  
-In this scenario, VPC B can either be a VPC in an account that supports EC2\-Classic, or an account that supports EC2\-VPC only\.
-
-![\[VPC peering with local ClassicLink\]](http://docs.aws.amazon.com/vpc/latest/peering/images/peering-with-local-classiclink-diagram.png)
-
-The route tables for VPC A contain routes for local VPC traffic, and routes to enable communication to the linked EC2\-Classic instance\. The custom route table for VPC A contains a route that enables instances in the subnet to communicate with the peer VPC over the VPC peering connection, and a route to route all Internet traffic to the Internet gateway\. The custom route table for VPC B contains a route to enable instances in the subnet to communicate with the peer VPC over the VPC peering connection\.
+Use the following route tables so that instance A can communicate with instances in VPC B, and instances in VPC B can communicate with instance A\.
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-classiclink.html)
 
 The owner of VPC A must modify the VPC peering connection to enable instance A to communicate with VPC B, and update the main route table\. The owner of VPC B must modify the VPC peering connection to enable VPC B to communicate with instance A\.
 
-**Note**  
-If one VPC is in a region with EC2\-Classic and the other VPC is in a region without EC2\-Classic, the option to update the ClassicLink settings is disabled in the console for the region without EC2\-Classic\. Therefore, you must use the AWS CLI instead\.
+For more information about adding routes, see [Adding and Removing Routes from a Route Table](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#AddRemoveRoutes) in the *Amazon VPC User Guide*\.
 
 **Topics**
-+ [Modifying the VPC peering connection for VPC A](#peering-configurations-modify-vpc-a)
-+ [Modifying the VPC peering connection for VPC B](#peering-configurations-modify-vpc-b)
-+ [Viewing VPC peering connection options](#peering-configurations-view-options)
++ [Modify the VPC peering connection for VPC A](#peering-configurations-modify-vpc-a)
++ [Modify the VPC peering connection for VPC B](#peering-configurations-modify-vpc-b)
++ [View VPC peering connection options](#peering-configurations-view-options)
 
-### Modifying the VPC peering connection for VPC A<a name="peering-configurations-modify-vpc-a"></a>
+### Modify the VPC peering connection for VPC A<a name="peering-configurations-modify-vpc-a"></a>
 
 To enable communication from the EC2\-Classic instance to VPC B, the AWS account owner of VPC A must modify the VPC peering connection options to enable the local ClassicLink connection to send traffic to instances in the peer VPC\.
 
@@ -83,20 +85,7 @@ You can use the [modify\-vpc\-peering\-connection\-options](https://docs.aws.ama
 aws ec2 modify-vpc-peering-connection-options --vpc-peering-connection-id pcx-aaaabbbb --requester-peering-connection-options AllowEgressFromLocalClassicLinkToRemoteVpc=true
 ```
 
-**To update the main route table**
-
-There are no changes to the route tables for VPC B or to the custom route table for VPC A\. The owner of VPC A must manually add a route to the main route table that enables the linked EC2\-Classic instance to communicate over the VPC peering connection\.
-
-
-| Destination | Target | 
-| --- | --- | 
-| 172\.31\.0\.0/16 | Local | 
-| 10\.0\.0\.0/8 | Local | 
-| 192\.168\.0\.0/16 | pcx\-aaaabbbb | 
-
-For more information about adding routes, see [Adding and Removing Routes from a Route Table](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#AddRemoveRoutes) in the *Amazon VPC User Guide*\.
-
-### Modifying the VPC peering connection for VPC B<a name="peering-configurations-modify-vpc-b"></a>
+### Modify the VPC peering connection for VPC B<a name="peering-configurations-modify-vpc-b"></a>
 
 Next, the AWS account owner of VPC B must modify the VPC peering connection options to enable VPC B to send traffic to EC2\-Classic instance A\.
 
@@ -120,11 +109,7 @@ Next, the AWS account owner of VPC B must modify the VPC peering connection opti
 aws ec2 modify-vpc-peering-connection-options --vpc-peering-connection-id pcx-aaaabbbb --accepter-peering-connection-options AllowEgressFromLocalVpcToRemoteClassicLink=true
 ```
 
-There are no changes to the route tables for VPC A\. A new route is automatically added to the route table for VPC B that allows instances in VPC B to communicate with the linked EC2\-Classic instance in VPC A\.
-
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-classiclink.html)
-
-### Viewing VPC peering connection options<a name="peering-configurations-view-options"></a>
+### View VPC peering connection options<a name="peering-configurations-view-options"></a>
 
 You can view the VPC peering connection options for the accepter VPC and requester VPC using the Amazon VPC console or the AWS CLI\.
 

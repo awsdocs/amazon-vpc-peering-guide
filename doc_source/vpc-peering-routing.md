@@ -19,7 +19,7 @@ For more information about supported route table configurations for VPC peering 
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Route Tables**\.
+1. In the navigation pane, choose **Route tables**\.
 
 1. Select the check box next to the route table that's associated with the subnet in which your instance resides\.
 
@@ -41,7 +41,7 @@ If you have resources in different AWS Regions that use IPv6 addresses, you can 
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Route Tables**\.
+1. In the navigation pane, choose **Route tables**\.
 
 1. Select the check box next to the route table that's associated with the subnet in which your instance resides\.
 **Note**  

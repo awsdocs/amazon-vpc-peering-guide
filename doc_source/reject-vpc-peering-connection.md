@@ -6,7 +6,7 @@ You can reject any VPC peering connection request that you've received that's in
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Peering Connections**\.
+1. In the navigation pane, choose **Peering connections**\.
 
 1. Select the VPC peering connection, and choose **Actions**, **Reject Request**\.
 

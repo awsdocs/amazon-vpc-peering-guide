@@ -12,9 +12,11 @@ When you delete a peering connection, the status is set to `Deleted`\. When the 
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Peering Connections**\.
+1. In the navigation pane, choose **Peering connections**\.
 
-1. Select the VPC peering connection, and choose **Actions**, **Delete VPC Peering Connection**\.
+1. Select the VPC peering connection\.
+
+1. Choose **Actions**, **Delete peering connection**\.
 
 1. In the confirmation dialog box, choose **Yes, Delete**\.
 

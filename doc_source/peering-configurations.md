@@ -1,8 +1,8 @@
 # VPC peering configurations<a name="peering-configurations"></a>
 
-The following documentation describes the supported VPC peering configurations\. You might require a configuration that allows routing between the entire CIDR block of each VPC, or a configuration that limits routing to specific subnets or IP addresses\.
+The following documentation describes supported VPC peering configurations\.
 
 **Topics**
-+ [Configurations with routes to an entire CIDR block](peering-configurations-full-access.md)
-+ [Configurations with specific routes](peering-configurations-partial-access.md)
-+ [Configurations with ClassicLink](peering-configurations-classiclink.md)
++ [VPC peering configurations with routes to an entire VPC](peering-configurations-full-access.md)
++ [VPC peering configurations with specific routes](peering-configurations-partial-access.md)
++ [VPC peering configurations with ClassicLink](peering-configurations-classiclink.md)

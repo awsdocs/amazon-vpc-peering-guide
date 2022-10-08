@@ -1,4 +1,4 @@
-# Update your security groups to reference peer VPC groups<a name="vpc-peering-security-groups"></a>
+# Update your security groups to reference peer security groups<a name="vpc-peering-security-groups"></a>
 
 You can update the inbound or outbound rules for your VPC security groups to reference security groups in the peered VPC\. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC\.
 
@@ -12,7 +12,7 @@ You can update the inbound or outbound rules for your VPC security groups to ref
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Security Groups**\.
+1. In the navigation pane, choose **Security groups**\.
 
 1. Select the security group, and choose **Inbound Rules** to modify the inbound rules or **Outbound Rules** to modify the outbound rules\.
 
@@ -81,7 +81,7 @@ You can view and delete the stale security group rules for a VPC using the Amazo
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. In the navigation pane, choose **Security Groups**\.
+1. In the navigation pane, choose **Security groups**\.
 
 1. Choose **Actions**, **Manage stale rules**\.
 
