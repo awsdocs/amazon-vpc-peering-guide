@@ -5,4 +5,4 @@ If you're having trouble connecting to a resource in a VPC from a resource in a 
 + For EC2 instances, verify that the security groups for the EC2 instances allow traffic from the peer VPC\. For more information, see [Reference peer security groups](vpc-peering-security-groups.md)\.
 + For each resource in each VPC, verify that the network ACL for its subnet allows traffic from the peer VPC\.
 
-You can also use VPC Reachability Analyzer to identify the component with a configuration issue, such as a route table, security group, or network ACL\. For more information, see the [VPC Reachability Analyzer Guide](https://docs.aws.amazon.com/vpc/latest/reachability/)\.
+You can also use Reachability Analyzer to identify the component with a configuration issue, such as a route table, security group, or network ACL\. For more information, see the [Reachability Analyzer Guide](https://docs.aws.amazon.com/vpc/latest/reachability/)\.

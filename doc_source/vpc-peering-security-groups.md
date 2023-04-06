@@ -14,15 +14,17 @@ You can update the inbound or outbound rules for your VPC security groups to ref
 
 1. In the navigation pane, choose **Security groups**\.
 
-1. Select the security group, and choose **Inbound Rules** to modify the inbound rules or **Outbound Rules** to modify the outbound rules\.
+1. Select the security group, and choose **Actions**, **Edit inbound rules** to modify the inbound rules or choose **Actions**, **Edit outbound rules** to modify the outbound rules\.
 
-1. Choose **Edit**, **Add another rule**\.
-
-1. Specify the type, protocol, and port range as required\. For **Source** \(or **Destination** for an outbound rule\), type the ID of the security group in the peer VPC if it is in the same Region or the CIDR block of the peer VPC if it is in a different Region\.
+1. To add a rule, choose **Add rule** and specify the type, protocol, and port range\. For **Source** \(inbound rule\) or **Destination** \(outbound rule\), enter the ID of the security group in the peer VPC if it is in the same Region or the CIDR block of the peer VPC if it is in a different Region\.
 **Note**  
 Security groups in a peer VPC are not automatically displayed\.
 
-1. Choose **Save**\.
+1. To edit an existing rule, change its values \(for example, the source or the description\)\.
+
+1. To delete a rule, choose **Delete** next to the rule\.
+
+1. Choose **Save rules**\.
 
 **To update inbound rules using the command line**
 + [authorize\-security\-group\-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\)

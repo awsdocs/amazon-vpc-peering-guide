@@ -1,6 +1,6 @@
 # Identity and access management for VPC peering<a name="security-iam"></a>
 
-By default, IAM users cannot create or modify VPC peering connections\. To grant access to VPC peering resources, attach an IAM policy to an IAM identity, such as a user, group, or role\.
+By default, users cannot create or modify VPC peering connections\. To grant access to VPC peering resources, attach an IAM policy to an IAM identity, such as a role\.
 
 **Topics**
 + [Create a VPC peering connection](#vpc-peering-iam-create)

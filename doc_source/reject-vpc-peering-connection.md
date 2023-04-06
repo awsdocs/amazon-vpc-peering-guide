@@ -1,6 +1,6 @@
 # Reject a VPC peering connection<a name="reject-vpc-peering-connection"></a>
 
-You can reject any VPC peering connection request that you've received that's in the `pending-acceptance` state\. You should only accept VPC peering connections from AWS accounts that you know and trust; you can reject any unwanted requests\. 
+You can reject any VPC peering connection request that you've received that's in the `pending-acceptance` state\. You should only accept VPC peering connections from AWS accounts that you know and trust; you can reject any unwanted requests\. For more information about the `Rejected` peering connection status, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle)\.
 
 **To reject a VPC peering connection**
 
@@ -8,9 +8,9 @@ You can reject any VPC peering connection request that you've received that's in
 
 1. In the navigation pane, choose **Peering connections**\.
 
-1. Select the VPC peering connection, and choose **Actions**, **Reject Request**\.
+1. Select the VPC peering connection, and choose **Actions**, **Reject request**\.
 
-1. In the confirmation dialog box, choose **Yes, Reject**\.
+1. When prompted for confirmation, choose **Reject request**\.
 
 **To reject a VPC peering connection using the command line or an API**
 + [reject\-vpc\-peering\-connection](https://docs.aws.amazon.com/cli/latest/reference/ec2/reject-vpc-peering-connection.html) \(AWS CLI\)

@@ -18,15 +18,15 @@ You cannot enable DNS resolution support when you create a new peering connectio
 
 1. In the navigation pane, choose **Peering connections**\.
 
-1. Select the VPC peering connection, and choose **Actions**, **Edit DNS Settings**\.
+1. Select the VPC peering connection, and choose **Actions**, **Edit DNS settings**\.
 
 1. To ensure that queries from the peer VPC resolve to private IP addresses in your local VPC, choose the option to enable DNS resolution for queries from the peer VPC\. This option is **Requester DNS resolution** or **Accepter DNS resolution**, depending on whether the VPC is the requester or accepter VPC\.
 
-1. If the peer VPC is in the same AWS account, you can enable DNS resolution for both VPCs in the peering connection\. 
+1. If the peer VPC is in the same AWS account, you can enable DNS resolution for both VPCs in the peering connection\.
 
-1. Choose **Save**\.
+1. Choose **Save changes**\.
 
-1. If the peer VPC is in a different AWS account or a different Region, the owner of the peer VPC must sign into the VPC console, perform steps 2 through 4, and choose **Save**\.
+1. If the peer VPC is in a different AWS account or a different Region, the owner of the peer VPC must sign into the VPC console, perform steps 2 through 4, and choose **Save changes**\.
 
 **To enable DNS resolution using the command line or an API**
 + [modify\-vpc\-peering\-connection\-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-peering-connection-options.html) \(AWS CLI\)

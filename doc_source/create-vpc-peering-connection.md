@@ -2,7 +2,7 @@
 
 To create a VPC peering connection, first create a request to peer with another VPC\. You can request a VPC peering connection with another VPC in your account, or with a VPC in a different AWS account\. For an inter\-Region VPC peering connection where the VPCs are in different Regions, the request must be made from the Region of the requester VPC\.
 
-To activate the request, the owner of the accepter VPC must accept the request\. For an inter\-Region VPC peering connection, the request must be accepted in the Region of the accepter VPC\. For more information, see [Accept a VPC peering connection](accept-vpc-peering-connection.md)\.
+To activate the request, the owner of the accepter VPC must accept the request\. For an inter\-Region VPC peering connection, the request must be accepted in the Region of the accepter VPC\. For more information, see [Accept a VPC peering connection](accept-vpc-peering-connection.md)\. For more information about the `Pending acceptance` peering connection status, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle)\.
 
 **Topics**
 + [Prerequisites](#vpc-peering-connection-prerequisites)
@@ -26,17 +26,17 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. Choose **Create peering connection**\.
 
-1. Configure the following information, and choose **Create Peering Connection** when you are done:
-   + **Peering connection name tag**: You can optionally name your VPC peering connection\. 
-   + **VPC \(Requester\)**: Select the VPC in your account with which you want to create the VPC peering connection\. 
-   + Under **Select another VPC to peer with**: Ensure **My account** is selected, and select another of your VPCs\.
+1. Configure the following information, and choose **Create peering connection** when you are done:
+   + **Name**: You can optionally name your VPC peering connection\. 
+   + **VPC ID \(Requester\)**: Select the VPC in your account with which you want to create the VPC peering connection\. 
+   + For **Select another VPC to peer with**, choose **My account** and select another of your VPCs\.
    + \(Optional\) To add a tag, choose **Add new tag** and enter the tag key and value\.
 
-1. In the confirmation dialog box, choose **OK**\.
+1. Choose **Actions**, **Accept request**\.
 
-1. Select the VPC peering connection that you've created, and choose **Actions**, **Accept Request**\.
+1. When prompted for confirmation, choose **Accept request**\.
 
-1. In the confirmation dialog, choose **Yes, Accept**\. A second confirmation dialog displays; choose **Modify my route tables now** to go directly to the route tables page, or choose **Close** to do this later\.
+1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\.
 
 ## Create with VPCs in the same account and different Regions<a name="same-account-different-region"></a>
 
@@ -48,20 +48,20 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. Choose **Create peering connection**\.
 
-1. Configure the following information, and choose **Create Peering Connection** when you are done:
-   + **Peering connection name tag**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. 
-   + **VPC \(Requester\)**: Select the requester VPC in your account with which to request the VPC peering connection\. 
-   + **Account**: Ensure **My account** is selected\.
-   + **Region**: Choose **Another region**, select the Region in which the accepter VPC resides\.
-   +  **VPC \(Accepter\)**: Enter the ID of the accepter VPC\.
-
-1. In the confirmation dialog box, choose **OK**\.
+1. Configure the following information, and choose **Create peering connection** when you are done:
+   + **Name**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and the value that you specify\. 
+   + **VPC ID \(Requester\)**: Select the requester VPC in your account with which to request the VPC peering connection\.
+   + **Account**: Choose **My account**\.
+   + **Region**: Choose **Another region** and select the Region ifor the accepter VPC\.
+   + **VPC ID \(Accepter\)**: Select the accepter VPC\.
 
 1. In the Region selector, select the Region of the accepter VPC\.
 
-1. In the navigation pane, choose **Peering Connections**\. Select the VPC peering connection that you've created, and choose **Actions**, **Accept Request**\.
+1. In the navigation pane, choose **Peering connections**\. Select the VPC peering connection that you created, and choose **Actions**, **Accept request**\.
 
-1. In the confirmation dialog, choose **Yes, Accept**\. A second confirmation dialog displays; choose **Modify my route tables now** to go directly to the route tables page, or choose **Close** to do this later\.
+1. When prompted for confirmation, choose **Accept request**\.
+
+1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\.
 
 ## Create with VPCs in different accounts and the same Region<a name="different-account-same-region"></a>
 
@@ -73,14 +73,12 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. Choose **Create peering connection**\.
 
-1. Configure the information as follows, and choose **Create Peering Connection** when you are done:
-   + **Peering connection name tag**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
-   + **VPC \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
+1. Configure the information as follows, and choose **Create peering connection** when you are done:
+   + **Name**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
+   + **VPC ID \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
    + **Account**: Choose **Another account**\.
-   + **Account ID**: Enter the AWS account ID of the owner of the accepter VPC\.
-   + **VPC \(Accepter\)**: Enter the ID of the VPC with which to create the VPC peering connection\.
-
-1. In the confirmation dialog box, choose **OK**\.
+   + **Account ID**: Enter the ID of the AWS account that owns the accepter VPC\.
+   + **VPC ID \(Accepter\)**: Enter the ID of the VPC with which to create the VPC peering connection\.
 
 ## Create with VPCs in different accounts and Regions<a name="different-account-different-region"></a>
 
@@ -92,15 +90,13 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. Choose **Create peering connection**\.
 
-1. Configure the information as follows, and choose **Create Peering Connection** when you are done:
-   + **Peering connection name tag**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
-   + **VPC \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
+1. Configure the information as follows, and choose **Create peering connection** when you are done:
+   + **Name**: You can optionally name your VPC peering connection\. Doing so creates a tag with a key of `Name` and a value that you specify\. This tag is only visible to you; the owner of the peer VPC can create their own tags for the VPC peering connection\.
+   + **VPC ID \(Requester\)**: Select the VPC in your account with which to create the VPC peering connection\. 
    + **Account**: Choose **Another account**\.
-   + **Account ID**: Enter the AWS account ID of the owner of the accepter VPC\.
-   + **Region**: Choose **Another region**, select the Region in which the accepter VPC resides\.
-   + **VPC \(Accepter\)**: Enter the ID of the VPC with which to create the VPC peering connection\.
-
-1. In the confirmation dialog box, choose **OK**\.
+   + **Account ID**: Enter the ID of the AWS account that owns the accepter VPC\.
+   + **Region**: Choose **Another region** and select the Region in which the accepter VPC resides\.
+   + **VPC ID \(Accepter\)**: Enter the ID of the VPC with which to create the VPC peering connection\.
 
 ## Create a VPC peering connection using the command line<a name="create-vpc-peering-connection-command-line"></a>
 

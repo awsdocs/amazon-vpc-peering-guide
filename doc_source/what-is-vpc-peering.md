@@ -14,4 +14,4 @@ When you establish peering relationships between VPCs across different AWS Regio
 
 ## Pricing for a VPC peering connection<a name="vpc-peering-pricing"></a>
 
-There is no charge to create a VPC peering connection\. There is a charge for data transfer across peering connections\. For more information, see [Amazon EC2 Pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)\.
+There is no charge to create a VPC peering connection\. All data transfer over a VPC Peering connection that stays within an Availability Zone \(AZ\) is free\. Charges apply for data transfer over a VPC Peering connections that cross Availability Zones and Regions\. For more information, see [Amazon EC2 Pricing](http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer)\.

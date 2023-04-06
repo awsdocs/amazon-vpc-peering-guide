@@ -1,6 +1,6 @@
 # Accept a VPC peering connection<a name="accept-vpc-peering-connection"></a>
 
-A VPC peering connection that's in the `pending-acceptance` state must be accepted by the owner of the accepter VPC to be activated\. You cannot accept a VPC peering connection request that you've sent to another AWS account\. If you are creating a VPC peering connection in the same AWS account, you must both create and accept the request yourself\. 
+A VPC peering connection that's in the `pending-acceptance` state must be accepted by the owner of the accepter VPC to be activated\. For more information about the `Deleted` peering connection status, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle)\. You cannot accept a VPC peering connection request that you've sent to another AWS account\. If you are creating a VPC peering connection in the same AWS account, you must both create and accept the request yourself\. 
 
 If the VPCs are in different Regions, the request must be accepted in the Region of the accepter VPC\.
 
@@ -17,13 +17,13 @@ After you accept the VPC peering connection, you must add an entry to your route
 
 1. In the navigation pane, choose **Peering connections**\. 
 
-1. Select the pending VPC peering connection \(the status is `pending-acceptance`\), and choose **Actions**, **Accept Request**\.
-**Note**  
+1. Select the pending VPC peering connection \(the status is `pending-acceptance`\), and choose **Actions**, **Accept request**\. For more information about peering connection lifecycle statuses, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle)\.
+**Tip**  
 If you cannot see the pending VPC peering connection, check the Region\. An inter\-Region peering request must be accepted in the Region of the accepter VPC\.
 
-1. In the confirmation dialog box, choose **Yes, Accept**\. A second confirmation dialog displays; choose **Modify my route tables now** to go directly to the route tables page, or choose **Close** to do this later\.
+1. When prompted for confirmation, choose **Accept request**\.
 
-Now that your VPC peering connection is active, you must add an entry to your VPC route table to enable traffic to be directed to the peer VPC\. For more information, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
+1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\. For more information, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 **To accept a VPC peering connection using the command line or an API**
 + [accept\-vpc\-peering\-connection](https://docs.aws.amazon.com/cli/latest/reference/ec2/accept-vpc-peering-connection.html) \(AWS CLI\)
