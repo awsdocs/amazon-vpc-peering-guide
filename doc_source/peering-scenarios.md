@@ -5,7 +5,6 @@ There are a number of reasons you might need to set up a VPC peering connection 
 **Topics**
 + [Peering two or more VPCs to provide full access to resources](#peering-scenarios-full)
 + [Peering to one VPC to access centralized resources](#peering-scenarios-partial)
-+ [Peering with ClassicLink](#peering-scenarios-classiclink)
 
 ## Peering two or more VPCs to provide full access to resources<a name="peering-scenarios-full"></a>
 
@@ -28,9 +27,3 @@ In this scenario, you have a central VPC that contains resources that you want t
 + You have a central VPC that is used for Active Directory services\. Specific instances in peer VPCs send requests to the Active Directory servers and require full access to the central VPC\. The central VPC does not require full access to the peer VPCs; it only needs to route response traffic to the specific instances\. 
 
 For more information about creating and working with VPC peering connections in the Amazon VPC console, see [Work with VPC peering connections](working-with-vpc-peering.md)\.
-
-## Peering with ClassicLink<a name="peering-scenarios-classiclink"></a>
-
-You can modify a VPC peering connection to enable one or more EC2\-Classic instances that are linked to your VPC via ClassicLink to communicate with instances in the peer VPC\. Similarly, you can modify a VPC peering connection to enable instances in your VPC to communicate with linked EC2\-Classic instances in the peer VPC\.
-
-For more information about how to set up the VPC peering connection configuration and route tables for this scenario, see [VPC peering configurations with ClassicLink](peering-configurations-classiclink.md)\.

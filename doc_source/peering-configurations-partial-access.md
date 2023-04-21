@@ -1,24 +1,24 @@
 # VPC peering configurations with specific routes<a name="peering-configurations-partial-access"></a>
 
-You can configure a VPC peering connections to provide access to part of the CIDR block, a specific CIDR block \(if the VPC has multiple CIDR blocks\) or a specific instance within the peer VPC\. In these examples, a central VPC is peered to two or more VPCs that have overlapping CIDR blocks\. For examples of scenarios in which you might need a specific VPC peering connection configuration, see [VPC peering scenarios](peering-scenarios.md)\. For more information about creating and working with VPC peering connections, see [Work with VPC peering connections](working-with-vpc-peering.md)\. For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
+You can configure route tables for a VPC peering connection to restrict access to a subnet CIDR block, a specific CIDR block \(if the VPC has multiple CIDR blocks\), or a specific resource in the peer VPC\. In these examples, a central VPC is peered to at least two VPCs that have overlapping CIDR blocks\.
+
+For examples of scenarios in which you might need a specific VPC peering connection configuration, see [VPC peering scenarios](peering-scenarios.md)\. For more information about working with VPC peering connections, see [Work with VPC peering connections](working-with-vpc-peering.md)\. For more information about updating your route tables, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 **Topics**
-+ [Two VPCs peered to two subnets in one VPC](#one-to-two-vpcs-simple-hub)
-+ [Two VPCs peered to two different CIDR blocks in one VPC](#two-vpcs-peered-specific-cidr)
-+ [One VPC peered to specific subnets in two VPCs](#one-to-two-vpcs-specific-subnets)
-+ [Instances in one VPC peered to instances in two VPCs](#one-to-two-vpcs-instances)
-+ [One VPC peered with two VPCs using longest prefix match](#one-to-two-vpcs-lpm)
++ [Two VPCs that access specific subnets in one VPC](#one-to-two-vpcs-simple-hub)
++ [Two VPCs that access specific CIDR blocks in one VPC](#two-vpcs-peered-specific-cidr)
++ [One VPC that accesses specific subnets in two VPCs](#one-to-two-vpcs-specific-subnets)
++ [Instances in one VPC that access specific instances in two VPCs](#one-to-two-vpcs-instances)
++ [One VPC that accesses two VPCs using longest prefix matches](#one-to-two-vpcs-lpm)
 + [Multiple VPC configurations](#multiple-configurations)
 
-## Two VPCs peered to two subnets in one VPC<a name="one-to-two-vpcs-simple-hub"></a>
+## Two VPCs that access specific subnets in one VPC<a name="one-to-two-vpcs-simple-hub"></a>
 
-You have a central VPC \(VPC A\), and you have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC A has two subnets: one for each VPC peering connection\. 
+In this configuration, there is a central VPC with two subnets \(VPC A\), a peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. Each VPC requires access to the resources in only one of the subnets in VPC A\.
 
 ![\[Two VPCs peered to two subnets in one VPC\]](http://docs.aws.amazon.com/vpc/latest/peering/images/two-vpcs-to-two-subnets-one-vpc.png)
 
-Use this configuration when you have a central VPC with separate sets of resources in different subnets\. Other VPCs may require access to some of the resources, but not all of them\.
-
-The route table for subnet 1 points to VPC peering connection `pcx-aaaabbbb` to access the entire CIDR block of VPC B\. VPC B's route table points to `pcx-aaaabbbb` to access the CIDR block of only subnet 1 in VPC A\. Similarly, the route table for subnet 2 points to VPC peering connection `pcx-aaaacccc` to access the entire CIDR block of VPC C\. VPC C's route table points to `pcx-aaaacccc` to access the CIDR block of only subnet 2 in VPC A\. 
+The route table for subnet 1 uses VPC peering connection `pcx-aaaabbbb` to access the entire CIDR block of VPC B\. The route table for VPC B uses `pcx-aaaabbbb` to access the CIDR block of subnet 1 in VPC A\. The route table for subnet 2 uses VPC peering connection `pcx-aaaacccc` to access the entire CIDR block of VPC C\. The route table for VPC C table uses `pcx-aaaacccc` to access the CIDR block of subnet 2 in VPC A\.
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
@@ -26,27 +26,27 @@ You can extend this configuration to multiple CIDR blocks\. Suppose that VPC A a
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
-## Two VPCs peered to two different CIDR blocks in one VPC<a name="two-vpcs-peered-specific-cidr"></a>
+## Two VPCs that access specific CIDR blocks in one VPC<a name="two-vpcs-peered-specific-cidr"></a>
 
-You have a central VPC \(VPC A\), and you have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC A has two CIDR blocks; one for each VPC peering connection\.
+In this configuration, there is a central VPC \(VPC A\), a peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC A has one CIDR block for each peering connection\.
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
-## One VPC peered to specific subnets in two VPCs<a name="one-to-two-vpcs-specific-subnets"></a>
+## One VPC that accesses specific subnets in two VPCs<a name="one-to-two-vpcs-specific-subnets"></a>
 
-You have a central VPC \(VPC A\) with one subnet, and you have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC B and VPC C each have two subnets, and only one in each is used for the peering connection with VPC A\. 
+In this configuration, there is a central VPC \(VPC A\) with one subnet, a peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC B and VPC C each have two subnets\. The peering connection between VPC A and VPC B uses only one of the subnets in VPC B\. The peering connection between VPC A and VPC C uses only one of the subnets in VPC C\.
 
 ![\[One VPC peered with two subnets\]](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-specific-subnets.png)
 
 Use this configuration when you have a central VPC that has a single set of resources, such as Active Directory services, that other VPCs need to access\. The central VPC does not require full access to the VPCs that it's peered with\. 
 
-The route table for VPC A points to both VPC peering connections to access only specific subnets in VPC B and VPC C\. The route tables for the subnets in VPC B and VPC C point to their VPC peering connections to access the VPC A subnet\.
+The route table for VPC A uses the peering connections to access only specific subnets in the peered VPCs\. The route table for subnet 1 uses the peering connection with VPC A to access the subnet in VPC A\. The route table for subnet 2 uses the peering connection with VPC A to access the subnet in VPC A\.
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
 ### Routing for response traffic<a name="peering-incorrect-response-routing"></a>
 
-If you have a VPC peered with multiple VPCs that have overlapping or matching CIDR blocks, ensure that your route tables are configured to avoid sending response traffic from your VPC to the incorrect VPC\. AWS currently does not support unicast reverse path forwarding in VPC peering connections that checks the source IP of packets and routes reply packets back to the source\. 
+If you have a VPC peered with multiple VPCs that have overlapping or matching CIDR blocks, ensure that your route tables are configured to avoid sending response traffic from your VPC to the incorrect VPC\. AWS does not support unicast reverse path forwarding in VPC peering connections that checks the source IP of packets and routes reply packets back to the source\. 
 
 For example, VPC A is peered with VPC B and VPC C\. VPC B and VPC C have matching CIDR blocks, and their subnets have matching CIDR blocks\. The route table for subnet 2 in VPC B points to the VPC peering connection `pcx-aaaabbbb` to access the VPC A subnet\. The VPC A route table is configured to send traffic destined for the VPC CIDR to peering connection `pcx-aaaaccccc`\.
 
@@ -74,9 +74,9 @@ Alternatively, depending on your use case, you can create a route to a specific 
 | Specific IP address in subnet 2 | pcx\-aaaabbbb | 
 | VPC B CIDR | pcx\-aaaacccc | 
 
-## Instances in one VPC peered to instances in two VPCs<a name="one-to-two-vpcs-instances"></a>
+## Instances in one VPC that access specific instances in two VPCs<a name="one-to-two-vpcs-instances"></a>
 
-You have a central VPC \(VPC A\) with one subnet, and you have a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC A has one subnet that has multiple instances; one for each of the VPCs that it's peered with\. You can use this configuration to limit peering traffic to specific instances\.
+In this configuration, there is a central VPC \(VPC A\) with one subnet, a peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC A has a subnet with one instance for each peering connection\. You can use this configuration to limit peering traffic to specific instances\.
 
 ![\[Instances in a VPC peered to instances in two VPCs\]](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-instances.png)
 
@@ -84,9 +84,9 @@ Each VPC route table points to the relevant VPC peering connection to access a s
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
-## One VPC peered with two VPCs using longest prefix match<a name="one-to-two-vpcs-lpm"></a>
+## One VPC that accesses two VPCs using longest prefix matches<a name="one-to-two-vpcs-lpm"></a>
 
-You have a central VPC \(VPC A\) with one subnet, a VPC peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a VPC peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC B and VPC C have matching CIDR blocks\. You want to use VPC peering connection `pcx-aaaabbbb` to route traffic between VPC A and specific instance in VPC B\. All other traffic destined for the CIDR address range shared by VPC B and VPC C is routed to VPC C through `pcx-aaaacccc`\. 
+In this configuration, there is a central VPC \(VPC A\) with one subnet, a peering connection between VPC A and VPC B \(`pcx-aaaabbbb`\), and a peering connection between VPC A and VPC C \(`pcx-aaaacccc`\)\. VPC B and VPC C have matching CIDR blocks\. You use VPC peering connection `pcx-aaaabbbb` to route traffic between VPC A and a specific instance in VPC B\. All other traffic destined for the CIDR address range shared by VPC B and VPC C is routed to VPC C through `pcx-aaaacccc`\.
 
 ![\[Peering using the longest prefix match\]](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-longest-prefix.png)
 
@@ -95,13 +95,13 @@ VPC route tables use longest prefix match to select the most specific route acro
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 
 **Important**  
-If an instance other than instance X in VPC B sends traffic to VPC A, the response traffic may be routed to VPC C instead of VPC B\. For more information, see [Routing for response traffic](#peering-incorrect-response-routing)\.
+If an instance other than instance X in VPC B sends traffic to VPC A, the response traffic might be routed to VPC C instead of VPC B\. For more information, see [Routing for response traffic](#peering-incorrect-response-routing)\.
 
 ## Multiple VPC configurations<a name="multiple-configurations"></a>
 
-In this example, a central VPC \(VPC A\) is peered with multiple VPCs in a spoke configuration\. You also have three VPCs \(VPCs X, Y, and Z\) peered in a full mesh configuration\.
+In this configuration, there is a central VPC \(VPC A\) is peered with multiple VPCs in a spoke configuration\. You also have three VPCs \(VPCs X, Y, and Z\) peered in a full mesh configuration\.
 
-VPC D also has a VPC peering connection with VPC X \(`pcx-ddddxxxx`\)\. VPC A and VPC X have overlapping CIDR blocks\. This means that peering traffic between VPC A and VPC D is limited to a specific subnet \(subnet 2\) in VPC D\. This is to ensure that if VPC D receives a request from VPC A or VPC X, it sends the response traffic to the correct VPC\. AWS currently does not support unicast reverse path forwarding in VPC peering connections that checks the source IP of packets and routes reply packets back to the source\. For more information, see [Routing for response traffic](#peering-incorrect-response-routing)\.
+VPC D also has a VPC peering connection with VPC X \(`pcx-ddddxxxx`\)\. VPC A and VPC X have overlapping CIDR blocks\. This means that peering traffic between VPC A and VPC D is limited to a specific subnet \(subnet 2\) in VPC D\. This is to ensure that if VPC D receives a request from VPC A or VPC X, it sends the response traffic to the correct VPC\. AWS does not support unicast reverse path forwarding in VPC peering connections that checks the source IP of packets and routes reply packets back to the source\. For more information, see [Routing for response traffic](#peering-incorrect-response-routing)\.
 
 Similarly, VPC D and VPC Z have overlapping CIDR blocks\. Peering traffic between VPC D and VPC X is limited to subnet 2 in VPC D, and peering traffic between VPC X and VPC Z is limited to subnet 1 in VPC Z\. This is to ensure that if VPC X receives peering traffic from VPC D or VPC Z, it sends the response traffic back to the correct VPC\. 
 

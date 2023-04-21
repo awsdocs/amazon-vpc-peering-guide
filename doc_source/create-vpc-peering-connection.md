@@ -36,7 +36,7 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. When prompted for confirmation, choose **Accept request**\.
 
-1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\.
+1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\. For more information, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ## Create with VPCs in the same account and different Regions<a name="same-account-different-region"></a>
 
@@ -61,7 +61,7 @@ To activate the request, the owner of the accepter VPC must accept the request\.
 
 1. When prompted for confirmation, choose **Accept request**\.
 
-1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\.
+1. Choose **Modify my route tables now** to add a route to the VPC route table so that you can send and receive traffic across the peering connection\. For more information, see [Update your route tables for a VPC peering connection](vpc-peering-routing.md)\.
 
 ## Create with VPCs in different accounts and the same Region<a name="different-account-same-region"></a>
 

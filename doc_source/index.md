@@ -29,7 +29,6 @@ sponsored by Amazon.
 + [VPC peering configurations](peering-configurations.md)
    + [VPC peering configurations with routes to an entire VPC](peering-configurations-full-access.md)
    + [VPC peering configurations with specific routes](peering-configurations-partial-access.md)
-   + [VPC peering configurations with ClassicLink](peering-configurations-classiclink.md)
 + [VPC peering scenarios](peering-scenarios.md)
 + [Identity and access management for VPC peering](security-iam.md)
 + [VPC peering connection quotas](vpc-peering-connection-quotas.md)
